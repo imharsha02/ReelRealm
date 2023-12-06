@@ -5,15 +5,15 @@ export type User = {
     password:string
 }
 
-export type Show = {
+export type Shows = {
     show_id:string,
     name:string,
     episodes:number,
     imageSrc:string
 }
 
-export type Movie = {
-    id:string,
+export type Movies = {
+    movie_id:string,
     name:string,
     imageSrc:string
 }

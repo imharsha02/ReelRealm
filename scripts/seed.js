@@ -56,7 +56,10 @@ async function seedShows(client) {
         (show) =>
           client.sql`
                     INSERT INTO shows (show_id,name,episodes,imageSrc)
-                    VALUES(${show.show_id}, ${show.name}, ${show.episodes}, ${show.imageSrc}) ON CONFLICT (show_id) DO NOTHING;
+                    VALUES(${show.show_id}, ${show.name}, ${show.episodes}, ${show.imageSrc}) ON CONFLICT (show_id) DO UPDATE SET
+                    name = EXCLUDED.name,
+                    episodes = EXCLUDED.episodes,
+                    imageSrc = EXCLUDED.imageSrc;
                 `
       )
     );
@@ -90,7 +93,9 @@ async function seedMovies(client) {
         (movie) =>
           client.sql`
                     INSERT INTO movies (movie_id,name,imageSrc)
-                    VALUES(${movie.movie_id}, ${movie.name}, ${movie.imageSrc}) ON CONFLICT (movie_id) DO NOTHING;
+                    VALUES(${movie.movie_id}, ${movie.name}, ${movie.imageSrc}) ON CONFLICT (movie_id) DO UPDATE SET
+                    name = EXCLUDED.name,
+                    imageSrc = EXCLUDED.imageSrc;;
                 `
       )
     );
