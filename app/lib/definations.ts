@@ -8,7 +8,7 @@ export type User = {
 export type Shows = {
     show_id:string,
     name:string,
-    episodes:number,
+    episodes:string,
     imageSrc:string
 }
 
