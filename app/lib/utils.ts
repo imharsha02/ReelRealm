@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import { User, Shows, Movies } from "./definations";
+import { User, Shows, Movies, Sequel } from "./definations";
 export async function fetchShows() {
   try {
     const shows = await sql<Shows> `SELECT * FROM shows`;
@@ -13,6 +13,16 @@ export async function fetchMovies() {
   try {
     const movies = await sql<Movies> `SELECT * FROM movies`;
     return movies.rows;
+  } catch (error) {
+    console.error("Database error:", error);
+    throw new Error("Failed to fetch data");
+  }
+}
+
+export async function fetchSequels() {
+  try {
+    const sequels = await sql<Sequel> `SELECT * FROM sequels`;
+    return sequels.rows;
   } catch (error) {
     console.error("Database error:", error);
     throw new Error("Failed to fetch data");

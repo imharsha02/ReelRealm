@@ -6,9 +6,9 @@ export default function MovieLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div>
       <Navbar />
       {children}
-    </>
+    </div>
   );
 }

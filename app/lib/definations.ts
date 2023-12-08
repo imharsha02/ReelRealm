@@ -17,3 +17,8 @@ export type Movies = {
     name:string,
     imageSrc:string
 }
+export type Sequel = {
+    sequel_id:string,
+    sequel_name:string,
+    imageSrc:string
+}

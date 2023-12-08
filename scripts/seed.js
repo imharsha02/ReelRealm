@@ -1,5 +1,10 @@
 const { db } = require("@vercel/postgres");
-const { users, shows, movies } = require("../app/lib/placeholder-shows.ts");
+const {
+  users,
+  shows,
+  movies,
+  sequels,
+} = require("../app/lib/placeholder-shows.ts");
 const bcrypt = require("bcrypt");
 async function seedUsers(client) {
   try {
@@ -111,11 +116,48 @@ async function seedMovies(client) {
   }
 }
 
+async function seedSequels(client) {
+  try {
+    //Creating movies table
+    const createTable = await client.sql`
+            CREATE TABLE IF NOT EXISTS sequels(
+                sequel_id VARCHAR(225) PRIMARY KEY,
+                sequel_name VARCHAR(225) NOT NULL,
+                imageSrc VARCHAR(225) NOT NULL
+            );
+        `;
+    console.log("Created sequels table");
+
+    //Inserting into sequels table
+    const insertedSequels = await Promise.all(
+      sequels.map(
+        (sequel) =>
+          client.sql`
+                    INSERT INTO sequels (sequel_id,sequel_name,imageSrc)
+                    VALUES(${sequel.sequel_id}, ${sequel.sequel_name}, ${sequel.imageSrc}) ON CONFLICT (sequel_id) DO UPDATE SET
+                    sequel_name = EXCLUDED.sequel_name,
+                    imageSrc = EXCLUDED.imageSrc;;
+                `
+      )
+    );
+
+    console.log(`Seeded ${insertedSequels.length} sequels`);
+    return {
+      createTable,
+      sequels: insertedSequels,
+    };
+  } catch (error) {
+    console.error("Error seeding sequels:", error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
   await seedUsers(client);
   await seedShows(client);
   await seedMovies(client);
+  await seedSequels(client);
   await client.end();
 }
 main().catch((err) => {
