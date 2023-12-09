@@ -1,3 +1,4 @@
+// Users
 const users = [
   {
     id: "1",
@@ -6,6 +7,8 @@ const users = [
     password: "somepassword",
   },
 ];
+
+//Shows
 const shows = [
   {
     show_id: "1",
@@ -39,6 +42,8 @@ const shows = [
   },
 ];
 
+
+// Movies
 const movies = [
   {
     movie_id: "1",
@@ -53,7 +58,7 @@ const movies = [
   {
     movie_id: "3",
     name: "Kong Skull Island",
-    imageSrc: "/thumbnails/kingkong,jpeg",
+    imageSrc: "/thumbnails/kingkong.jpeg",
   },
   {
     movie_id: "4",
@@ -128,7 +133,7 @@ const movies = [
   {
     movie_id: "18",
     name: "Dead pool",
-    imageSrc: "/thumbnails/deadpool.jpeg",
+    imageSrc: "/thumbnails/croods.jpg",
   },
   {
     movie_id: "19",
@@ -142,6 +147,7 @@ const movies = [
   },
 ];
 
+//Sequels
 const sequels = [
   {
     sequel_id:"1",
@@ -285,6 +291,150 @@ const sequels = [
   },
 ]
 
+//Protagonist
+const details = [
+  {
+    movie_id:"1",
+    movie_name:"Avengers",
+    leadRoleBy:"Robert Downy Junior",
+    release_date:"May 04 2012",
+    imageSrc:"/thumbnails/avengers.jpg"
+  },
+  {
+    movie_id:"2",
+    movie_name:"Transformers",
+    leadRoleBy:"Shia LaBeouf",
+    release_date:"july 03 2007",
+    imageSrc:"/thumbnails/transformers.jpg"
+  },
+  {
+    movie_id:"3",
+    movie_name:"Kong Skull Island",
+    leadRoleBy:"Tom Hiddleston",
+    release_date:"Mar 10 2017",
+    imageSrc:"/thumbnails/kingkong.jpeg"
+  },
+  {
+    movie_id:"4",
+    movie_name:"Bolt",
+    leadRoleBy:"John Travolta",
+    release_date:"Nov 21 2008",
+    imageSrc:"/thumbnails/bolt.jpg"
+  },
+  {
+    movie_id:"5",
+    movie_name:"Dr. Strange",
+    leadRoleBy:"Benedict Camberbatch",
+    release_date:"Nov 04 2016",
+    imageSrc:"/thumbnails/drstrange.jpg"
+  },
+  {
+    movie_id:"6",
+    movie_name:"The Karate Kid",
+    leadRoleBy:"Jaden Smith",
+    release_date:"June 11 2010",
+    imageSrc:"/thumbnails/karatakid.jpg"
+  },
+  {
+    movie_id:"7",
+    movie_name:"Forbidden Kingdom",
+    leadRoleBy:"Michael Angarano",
+    release_date:"Apr 18 2018",
+    imageSrc:"/thumbnails/forbiddenkingdom.jpg"
+  },
+  {
+    movie_id:"8",
+    movie_name:"The Transporter",
+    leadRoleBy:"Jason Statham",
+    release_date:"Oct 11 2002",
+    imageSrc:"/thumbnails/transporter.jpeg"
+  },
+  {
+    movie_id:"9",
+    movie_name:"Batman Begins",
+    leadRoleBy:"Christian Bale",
+    release_date:"Jun 15 2005",
+    imageSrc:"/thumbnails/batman.jpg"
+  },
+  {
+    movie_id:"10",
+    movie_name:"The Mummy",
+    leadRoleBy:"Brendan Fraser",
+    release_date:"May 07 1999",
+    imageSrc:"/thumbnails/mummy.jpg"
+  },
+  {
+    movie_id:"11",
+    movie_name:"The Tomorrow War",
+    leadRoleBy:"Chris pratt",
+    release_date:"Jul 02, 2021",
+    imageSrc:"/thumbnails/thetomorrowwar.jpeg",
+  },
+  {
+    movie_id:"12",
+    movie_name:"How to train your dragon",
+    leadRoleBy:"Jay Baruchel",
+    release_date:"Mar 26, 2010",
+    imageSrc:"/thumbnails/httyd.jpg"
+  },
+  {
+    movie_id:"13",
+    movie_name:"Guardians Of The Galaxy",
+    leadRoleBy:"Chirs Pratt",
+    release_date:"Aug 08, 2014",
+    imageSrc:"/thumbnails/gardiansofthegalexy.jpg"
+  },
+  {
+    movie_id:"14",
+    movie_name:"Journey to the center of the Earth",
+    leadRoleBy:"Brendan Fraser",
+    release_date:"Jul 11 2008",
+    imageSrc:"/thumbnails/journeytothecenteroftheearth.jpg"
+  },
+  {
+    movie_id:"15",
+    movie_name:"Thor",
+    leadRoleBy:"Chris Hamswarth",
+    release_date:"May 06 2011",
+    imageSrc:"/thumbnails/thor.jpeg"
+  },
+  {
+    movie_id:"16",
+    movie_name:"Spiderman",
+    leadRoleBy:"Toby Maguire",
+    release_date:"May 24 2002",
+    imageSrc:"/thumbnails/spiderman.webp"
+  },
+  {
+    movie_id:"17",
+    movie_name:"The Croods",
+    leadRoleBy:"Emma Stone",
+    release_date:"Mar 22 2013",
+    imageSrc:"/thumbnails/croods.jpg"
+  },
+  {
+    movie_id:"18",
+    movie_name:"Dead pool",
+    leadRoleBy:"Ryan Reynolds",
+    release_date:"Feb 12 2016",
+    imageSrc:"/thumbnails/croods.jpg"
+  },
+  {
+    movie_id:"19",
+    movie_name:"Frozen",
+    leadRoleBy:"Kristen Bell",
+    release_date:"Nov 27 2013",
+    imageSrc:"/thumbnails/frozen.jpg"
+  },
+  {
+    movie_id:"20",
+    movie_name:"Captain America the First Avenger",
+    leadRoleBy:"Chris Evens",
+    release_date:"Jul 22 2011",
+    imageSrc:"/thumbnails/captainamerica.jpeg"
+  },
+]
+
 module.exports = {
-  users,shows,movies,sequels
+  users,shows,movies,sequels, details
 }

@@ -4,6 +4,7 @@ const {
   shows,
   movies,
   sequels,
+  details,
 } = require("../app/lib/placeholder-shows.ts");
 const bcrypt = require("bcrypt");
 async function seedUsers(client) {
@@ -124,7 +125,7 @@ async function seedSequels(client) {
                 sequel_id VARCHAR(225) PRIMARY KEY,
                 sequel_name VARCHAR(225) NOT NULL,
                 imageSrc VARCHAR(225) NOT NULL
-            );
+            )
         `;
     console.log("Created sequels table");
 
@@ -136,7 +137,7 @@ async function seedSequels(client) {
                     INSERT INTO sequels (sequel_id,sequel_name,imageSrc)
                     VALUES(${sequel.sequel_id}, ${sequel.sequel_name}, ${sequel.imageSrc}) ON CONFLICT (sequel_id) DO UPDATE SET
                     sequel_name = EXCLUDED.sequel_name,
-                    imageSrc = EXCLUDED.imageSrc;;
+                    imageSrc = EXCLUDED.imageSrc
                 `
       )
     );
@@ -152,12 +153,48 @@ async function seedSequels(client) {
   }
 }
 
+async function seedDetails(client) {
+  try {
+    const createTable = await client.sql`
+            CREATE TABLE IF NOT EXISTS details(
+                movie_id VARCHAR(225) PRIMARY KEY,
+                movie_name VARCHAR(225) NOT NULL,
+                leadRoleBy VARCHAR(225) NOT NULL,
+                release_date VARCHAR(225) NOT NULL,
+                imageSrc VARCHAR(225) NOT NULL
+            )
+        `;
+    console.log("Created DETAILS table");
+    const insertedDetails = await Promise.all(
+      details.map(
+        (detail) =>
+          client.sql`
+                  INSERT INTO details (movie_id,movie_name,leadRoleBy,release_date,imageSrc)
+                  VALUES(${detail.movie_id}, ${detail.movie_name}, ${detail.leadRoleBy}, ${detail.release_date} ,${detail.imageSrc}) ON CONFLICT (movie_id) DO UPDATE SET
+                  movie_name = EXCLUDED.movie_name,
+                  leadRoleBy = EXCLUDED.leadRoleBy,
+                  release_date = EXCLUDED.release_date,
+                  imageSrc = EXCLUDED.imageSrc
+              `
+      )
+    );
+    console.log(`Seeded details of ${insertedDetails.length} movies`);
+    return {
+      createTable,
+      details: insertedDetails,
+    };
+  } catch (error) {
+    console.log("Error seeding details table", error);
+  }
+}
+
 async function main() {
   const client = await db.connect();
   await seedUsers(client);
   await seedShows(client);
   await seedMovies(client);
   await seedSequels(client);
+  await seedDetails(client);
   await client.end();
 }
 main().catch((err) => {

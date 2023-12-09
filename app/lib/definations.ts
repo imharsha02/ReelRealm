@@ -22,3 +22,11 @@ export type Sequel = {
     sequel_name:string,
     imageSrc:string
 }
+
+export type Detail = {
+    movie_id:string,
+    movie_name:string,
+    leadRoleBy:string,
+    release_date:string,
+    imageSrc:string
+}
