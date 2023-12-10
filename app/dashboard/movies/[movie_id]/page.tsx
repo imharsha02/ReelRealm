@@ -1,4 +1,5 @@
 import React from "react";
+import { Suspense } from "react";
 import { kanit } from "@/app/ui/fonts";
 import { fetchDetails } from "@/app/lib/utils";
 import Image from "next/image";
@@ -9,25 +10,27 @@ const IndividualMovie = async ({
   params: { movie_id: string };
 }) => {
   const movieDetails = await fetchDetails(params.movie_id);
-  console.log(typeof(movieDetails[0].leadRoleBy));
-  
+  console.log(typeof movieDetails[0].leadRoleBy);
+
   return (
     <>
       {movieDetails.map((detail) => {
         return (
-          <div key={detail.movie_id}>
-            <Image src={detail.imageSrc} alt="" height={30} width={30} />
-            <div className="flex gap-1">
-              <h3 className={kanit.className}>Movie</h3>
-              <p>{detail.movie_name}</p>
-            </div>
-            <div className="flex gap-1">
-              <h3 className={kanit.className}>Actors</h3>
-              <p>{detail.leadRoleBy}</p>
-            </div>
-            <div className="flex gap-1">
-              <h3 className={kanit.className}>Release date</h3>
-              <p>{detail.release_date}</p>
+          <div key={detail.movie_id} className="mx-auto w-max space-y-3">
+            <Image src={detail.imageSrc} alt="" className="rounded-lg p-3 bg-slate-100 border-none" height={600} width={600} />
+            <div className="w-max mx-auto">
+              <div className="flex gap-1 items-center">
+                <h3 className={`text-xl ${kanit.className}`}>Movie</h3>
+                <p className="text-lg">{detail.movie_name}</p>
+              </div>
+              <div className="flex gap-1">
+                <h3 className={`text-xl ${kanit.className}`}>Lead role By</h3>
+                <p className="text-lg">{detail.leadRoleBy}</p>
+              </div>
+              <div className="flex gap-1">
+                <h3 className={`text-xl ${kanit.className}`}>Release date</h3>
+                <p className="text-lg">{detail.release_date}</p>
+              </div>
             </div>
           </div>
         );
