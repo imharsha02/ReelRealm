@@ -1,6 +1,9 @@
-import {MovieSkeleton} from '@/app/ui/skeletons'
-export default function LoadingUI(){
-    return (
-        <MovieSkeleton />
-    )
+import { MovieSkeleton } from "@/app/ui/skeletons";
+
+const LoadingUI = () => {
+  return (
+    <MovieSkeleton />
+  )
 }
+
+export default LoadingUI

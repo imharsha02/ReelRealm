@@ -19,7 +19,7 @@ export function MovieSkeleton() {
           <div className="h-4 w-20  bg-slate-100"></div>
         </div>
       </div>
-      <div className="flex justify-between mt-3">
+      <div className="mx-auto flex justify-between mt-3">
         <div className="bg-slate-100 rounded-lg px-5 py-3 w-20 h-4"></div>
         <div className="bg-slate-100 rounded-lg px-5 py-3 w-20 h-4"></div>
       </div>

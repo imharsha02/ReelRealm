@@ -30,7 +30,7 @@ export async function fetchSequels() {
   }
 };
 
-export async function fetchDetails(id:string) {
+export async function fetchDetails(id:number) {
   noStore()
   try {
     const details = await sql<Detail> `SELECT * FROM details WHERE movie_id = ${id}`;

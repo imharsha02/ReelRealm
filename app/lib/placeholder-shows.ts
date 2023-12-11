@@ -46,102 +46,102 @@ const shows = [
 // Movies
 const movies = [
   {
-    movie_id: "1",
+    movie_id: 1,
     name: "The Avengers",
     imageSrc: "/thumbnails/avengers.jpg",
   },
   {
-    movie_id: "2",
+    movie_id: 2,
     name: "Transformers",
     imageSrc: "/thumbnails/transformers.jpg",
   },
   {
-    movie_id: "3",
+    movie_id: 3,
     name: "Kong Skull Island",
     imageSrc: "/thumbnails/kingkong.jpeg",
   },
   {
-    movie_id: "4",
+    movie_id: 4,
     name: "Bolt",
     imageSrc: "/thumbnails/bolt.jpg",
   },
   {
-    movie_id: "5",
+    movie_id: 5,
     name: "Dr. Strange",
     imageSrc: "/thumbnails/drstrange.jpg",
   },
   {
-    movie_id: "6",
+    movie_id: 6,
     name: "The Karate Kid",
     imageSrc: "/thumbnails/karatakid.jpg",
   },
   {
-    movie_id: "7",
+    movie_id: 7,
     name: "Forbidden Kingdom",
     imageSrc: "/thumbnails/forbiddenkingdom.jpg",
   },
   {
-    movie_id: "8",
+    movie_id: 8,
     name: "The Transporter",
     imageSrc: "/thumbnails/transporter.jpeg",
   },
   {
-    movie_id: "9",
+    movie_id: 9,
     name: "Batman Begins",
     imageSrc: "/thumbnails/batman.jpg",
   },
   {
-    movie_id: "10",
+    movie_id: 10,
     name: "The Mummy",
     imageSrc: "/thumbnails/mummy.jpg",
   },
   {
-    movie_id: "11",
+    movie_id: 11,
     name: "The Tomorrow War",
     imageSrc: "/thumbnails/thetomorrowwar.jpeg",
   },
   {
-    movie_id: "12",
+    movie_id: 12,
     name: "How to train your dragon",
     imageSrc: "/thumbnails/httyd.jpg",
   },
   {
-    movie_id: "13",
+    movie_id: 13,
     name: "Gardians of the Galexy",
     imageSrc: "/thumbnails/gardiansofthegalexy.jpg",
   },
   {
-    movie_id: "14",
+    movie_id: 14,
     name: "Journey to the center of the Earth",
     imageSrc: "/thumbnails/journeytothecenteroftheearth.jpg",
   },
   {
-    movie_id: "15",
+    movie_id: 15,
     name: "Thor",
     imageSrc: "/thumbnails/thor.jpeg",
   },
   {
-    movie_id: "16",
+    movie_id: 16,
     name: "Spiderman",
     imageSrc: "/thumbnails/spiderman.webp",
   },
   {
-    movie_id: "17",
+    movie_id: 17,
     name: "The Croods",
     imageSrc: "/thumbnails/croods.jpg",
   },
   {
-    movie_id: "18",
+    movie_id: 18,
     name: "Dead pool",
     imageSrc: "/thumbnails/croods.jpg",
   },
   {
-    movie_id: "19",
+    movie_id: 19,
     name: "Frozen",
     imageSrc: "/thumbnails/frozen.jpg",
   },
   {
-    movie_id: "20",
+    movie_id: 20,
     name: "Captain America the First Avenger",
     imageSrc: "/thumbnails/captainamerica.jpeg",
   },
@@ -294,140 +294,140 @@ const sequels = [
 //Protagonist
 const details = [
   {
-    movie_id:"1",
+    movie_id:1,
     movie_name:"Avengers",
     leadRoleBy:"Robert Downy Junior",
     release_date:"May 04 2012",
     imageSrc:"/thumbnails/avengers.jpg"
   },
   {
-    movie_id:"2",
+    movie_id:2,
     movie_name:"Transformers",
     leadRoleBy:"Shia LaBeouf",
     release_date:"july 03 2007",
     imageSrc:"/thumbnails/transformers.jpg"
   },
   {
-    movie_id:"3",
+    movie_id:3,
     movie_name:"Kong Skull Island",
     leadRoleBy:"Tom Hiddleston",
     release_date:"Mar 10 2017",
     imageSrc:"/thumbnails/kingkong.jpeg"
   },
   {
-    movie_id:"4",
+    movie_id:4,
     movie_name:"Bolt",
     leadRoleBy:"John Travolta",
     release_date:"Nov 21 2008",
     imageSrc:"/thumbnails/bolt.jpg"
   },
   {
-    movie_id:"5",
+    movie_id:5,
     movie_name:"Dr. Strange",
     leadRoleBy:"Benedict Camberbatch",
     release_date:"Nov 04 2016",
     imageSrc:"/thumbnails/drstrange.jpg"
   },
   {
-    movie_id:"6",
+    movie_id:6,
     movie_name:"The Karate Kid",
     leadRoleBy:"Jaden Smith",
     release_date:"June 11 2010",
     imageSrc:"/thumbnails/karatakid.jpg"
   },
   {
-    movie_id:"7",
+    movie_id:7,
     movie_name:"Forbidden Kingdom",
     leadRoleBy:"Michael Angarano",
     release_date:"Apr 18 2018",
     imageSrc:"/thumbnails/forbiddenkingdom.jpg"
   },
   {
-    movie_id:"8",
+    movie_id:8,
     movie_name:"The Transporter",
     leadRoleBy:"Jason Statham",
     release_date:"Oct 11 2002",
     imageSrc:"/thumbnails/transporter.jpeg"
   },
   {
-    movie_id:"9",
+    movie_id:9,
     movie_name:"Batman Begins",
     leadRoleBy:"Christian Bale",
     release_date:"Jun 15 2005",
     imageSrc:"/thumbnails/batman.jpg"
   },
   {
-    movie_id:"10",
+    movie_id:10,
     movie_name:"The Mummy",
     leadRoleBy:"Brendan Fraser",
     release_date:"May 07 1999",
     imageSrc:"/thumbnails/mummy.jpg"
   },
   {
-    movie_id:"11",
+    movie_id:11,
     movie_name:"The Tomorrow War",
     leadRoleBy:"Chris pratt",
     release_date:"Jul 02, 2021",
     imageSrc:"/thumbnails/thetomorrowwar.jpeg",
   },
   {
-    movie_id:"12",
+    movie_id:12,
     movie_name:"How to train your dragon",
     leadRoleBy:"Jay Baruchel",
     release_date:"Mar 26, 2010",
     imageSrc:"/thumbnails/httyd.jpg"
   },
   {
-    movie_id:"13",
+    movie_id:13,
     movie_name:"Guardians Of The Galaxy",
     leadRoleBy:"Chirs Pratt",
     release_date:"Aug 08, 2014",
     imageSrc:"/thumbnails/gardiansofthegalexy.jpg"
   },
   {
-    movie_id:"14",
+    movie_id:14,
     movie_name:"Journey to the center of the Earth",
     leadRoleBy:"Brendan Fraser",
     release_date:"Jul 11 2008",
     imageSrc:"/thumbnails/journeytothecenteroftheearth.jpg"
   },
   {
-    movie_id:"15",
+    movie_id:15,
     movie_name:"Thor",
     leadRoleBy:"Chris Hamswarth",
     release_date:"May 06 2011",
     imageSrc:"/thumbnails/thor.jpeg"
   },
   {
-    movie_id:"16",
+    movie_id:16,
     movie_name:"Spiderman",
     leadRoleBy:"Toby Maguire",
     release_date:"May 24 2002",
     imageSrc:"/thumbnails/spiderman.webp"
   },
   {
-    movie_id:"17",
+    movie_id:17,
     movie_name:"The Croods",
     leadRoleBy:"Emma Stone",
     release_date:"Mar 22 2013",
     imageSrc:"/thumbnails/croods.jpg"
   },
   {
-    movie_id:"18",
+    movie_id:18,
     movie_name:"Dead pool",
     leadRoleBy:"Ryan Reynolds",
     release_date:"Feb 12 2016",
     imageSrc:"/thumbnails/croods.jpg"
   },
   {
-    movie_id:"19",
+    movie_id:19,
     movie_name:"Frozen",
     leadRoleBy:"Kristen Bell",
     release_date:"Nov 27 2013",
     imageSrc:"/thumbnails/frozen.jpg"
   },
   {
-    movie_id:"20",
+    movie_id:20,
     movie_name:"Captain America the First Avenger",
     leadRoleBy:"Chris Evens",
     release_date:"Jul 22 2011",

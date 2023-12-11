@@ -157,7 +157,7 @@ async function seedDetails(client) {
   try {
     const createTable = await client.sql`
             CREATE TABLE IF NOT EXISTS details(
-                movie_id VARCHAR(225) PRIMARY KEY,
+                movie_id INT PRIMARY KEY,
                 movie_name VARCHAR(225) NOT NULL,
                 leadRoleBy VARCHAR(225) NOT NULL,
                 release_date VARCHAR(225) NOT NULL,

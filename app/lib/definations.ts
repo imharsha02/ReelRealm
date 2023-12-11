@@ -13,7 +13,7 @@ export type Shows = {
 }
 
 export type Movies = {
-    movie_id:string,
+    movie_id:number,
     name:string,
     imageSrc:string
 }
@@ -24,7 +24,7 @@ export type Sequel = {
 }
 
 export type Detail = {
-    movie_id:string,
+    movie_id:number,
     movie_name:string,
     leadRoleBy:string,
     release_date:string,
