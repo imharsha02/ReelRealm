@@ -1,15 +1,15 @@
-import React from "react";
-
 import { kanit } from "@/app/ui/fonts";
-import Link from "next/link";
+import { fetchMovies } from "@/app/lib/utils";
 import { fetchDetails } from "@/app/lib/utils";
 import Image from "next/image";
+import Pagination from "../_components/Pagination";
 
 const IndividualMovie = async ({
   params,
 }: {
   params: { movie_id: number };
 }) => {
+  const allMovies = await fetchMovies();
   const movieDetails = await fetchDetails(params.movie_id);
 
   return (
@@ -39,20 +39,7 @@ const IndividualMovie = async ({
                 <p className="text-lg">{detail.release_date}</p>
               </div>
             </div>
-            <div className="flex w-full justify-between mt-3">
-              <Link
-                href={`/dashboard/movies/${movieId - 1}`}
-                className={`bg-blue-500 rounded font-bold transition hover:bg-blue-400 text-white px-5 py-1`}
-              >
-                Prev
-              </Link>
-              <Link
-                href={`/dashboard/movies/${movieId + 1}`}
-                className="bg-blue-500 rounded font-bold transition hover:bg-blue-400 text-white px-5 py-1"
-              >
-                Next
-              </Link>
-            </div>
+            <Pagination movieId = {movieId} allMovies = {allMovies}/>
           </div>
         );
       })}
