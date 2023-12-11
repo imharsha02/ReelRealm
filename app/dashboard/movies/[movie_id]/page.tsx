@@ -15,8 +15,9 @@ const IndividualMovie = async ({
   return (
     <>
       {movieDetails.map((detail) => {
+        const movieId = Number(detail.movie_id);
         return (
-          <div key={detail.movie_id} className="my-5 mx-auto w-max space-y-3">
+          <div key={movieId} className="my-5 mx-auto w-max space-y-3">
             <Image
               src={detail.imageSrc}
               alt=""
@@ -40,13 +41,13 @@ const IndividualMovie = async ({
             </div>
             <div className="flex w-full justify-between mt-3">
               <Link
-                href={`/dashboard/movies/${detail.movie_id - 1}`}
-                className="bg-blue-500 rounded font-bold transition hover:bg-blue-400 text-white px-5 py-1"
+                href={`/dashboard/movies/${movieId - 1}`}
+                className={`bg-blue-500 rounded font-bold transition hover:bg-blue-400 text-white px-5 py-1`}
               >
                 Prev
               </Link>
               <Link
-                href={`/dashboard/movies/${detail.movie_id + 1}`}
+                href={`/dashboard/movies/${movieId + 1}`}
                 className="bg-blue-500 rounded font-bold transition hover:bg-blue-400 text-white px-5 py-1"
               >
                 Next
