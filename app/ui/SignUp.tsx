@@ -30,7 +30,7 @@ const SignUp = () => {
         </div>
         <div className="flex justify-end">
           <button className="font-bold px-4 py-2 border-none rounded-lg bg-blue-500 text-white hover:bg-blue-400 transition">
-            <Link href="/">Sign Up</Link>
+            <Link href="/dashboard">Sign Up</Link>
           </button>
         </div>
       </form>
