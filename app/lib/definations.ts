@@ -15,7 +15,7 @@ export type Shows = {
 export type Movies = {
     movie_id:number,
     name:string,
-    imageSrc:File
+    imageSrc:string
 }
 export type Sequel = {
     sequel_id:string,

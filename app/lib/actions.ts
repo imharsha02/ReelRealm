@@ -38,7 +38,7 @@ const movie = movieSchema.omit({movie_id:true});
   
     // Insert into database
     await sql`
-      INSERT INTO movies (movie_id, name, imageSrc) VALUES (${movieData.name}, ${thumbnailUrl})
+      INSERT INTO movies (name, imageSrc) VALUES (${movieData.name}, ${thumbnailUrl})
     `;
     revalidatePath('/dashboard/movies');
     redirect('/dashboard/movies');

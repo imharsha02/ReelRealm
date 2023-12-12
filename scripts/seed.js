@@ -85,11 +85,13 @@ async function seedMovies(client) {
   try {
     //Creating movies table
     const createTable = await client.sql`
-            CREATE TABLE IF NOT EXISTS movies(
-                movie_id SERIAL PRIMARY KEY,
-                name VARCHAR(225) NOT NULL,
-                imageSrc VARCHAR(225) NOT NULL
-            );
+    DROP TABLE IF EXISTS movies;
+
+    CREATE TABLE movies (
+      movie_id SERIAL PRIMARY KEY,
+      name VARCHAR(225) NOT NULL,
+      imageSrc VARCHAR(225) NOT NULL
+    );
         `;
     console.log("Created movies table");
 
@@ -98,10 +100,8 @@ async function seedMovies(client) {
       movies.map(
         (movie) =>
           client.sql`
-                    INSERT INTO movies (movie_id,name,imageSrc)
-                    VALUES(${movie.movie_id}, ${movie.name}, ${movie.imageSrc}) ON CONFLICT (movie_id) DO UPDATE SET
-                    name = EXCLUDED.name,
-                    imageSrc = EXCLUDED.imageSrc;;
+                    INSERT INTO movies (name,imageSrc)
+                    VALUES(${movie.name}, ${movie.imageSrc})
                 `
       )
     );
