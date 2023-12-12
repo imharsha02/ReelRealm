@@ -86,7 +86,7 @@ async function seedMovies(client) {
     //Creating movies table
     const createTable = await client.sql`
             CREATE TABLE IF NOT EXISTS movies(
-                movie_id VARCHAR(225) PRIMARY KEY,
+                movie_id SERIAL PRIMARY KEY,
                 name VARCHAR(225) NOT NULL,
                 imageSrc VARCHAR(225) NOT NULL
             );
