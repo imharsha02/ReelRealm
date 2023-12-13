@@ -156,8 +156,9 @@ async function seedSequels(client) {
 async function seedDetails(client) {
   try {
     const createTable = await client.sql`
+            DROP TABLE IF EXISTS details;
             CREATE TABLE IF NOT EXISTS details(
-                movie_id INT PRIMARY KEY,
+                movie_id SERIAL PRIMARY KEY,
                 movie_name VARCHAR(225) NOT NULL,
                 leadRoleBy VARCHAR(225) NOT NULL,
                 release_date VARCHAR(225) NOT NULL,
@@ -169,12 +170,8 @@ async function seedDetails(client) {
       details.map(
         (detail) =>
           client.sql`
-                  INSERT INTO details (movie_id,movie_name,leadRoleBy,release_date,imageSrc)
-                  VALUES(${detail.movie_id}, ${detail.movie_name}, ${detail.leadRoleBy}, ${detail.release_date} ,${detail.imageSrc}) ON CONFLICT (movie_id) DO UPDATE SET
-                  movie_name = EXCLUDED.movie_name,
-                  leadRoleBy = EXCLUDED.leadRoleBy,
-                  release_date = EXCLUDED.release_date,
-                  imageSrc = EXCLUDED.imageSrc
+                  INSERT INTO details (movie_name,leadRoleBy,release_date,imageSrc)
+                  VALUES(${detail.movie_name}, ${detail.leadRoleBy}, ${detail.release_date} ,${detail.imageSrc})
               `
       )
     );

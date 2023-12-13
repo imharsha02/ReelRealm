@@ -1,12 +1,11 @@
 import { fetchMovies } from "@/app/lib/utils";
-import { addMovie } from "@/app/lib/actions";
-const Form = async () => {
+const DetailsForm = async () => {
   const movies = await fetchMovies();
   const numberOfMovies = movies.length;
+  console.log(numberOfMovies)
   return (
     <div className=" max-w-screen mx-auto py-10">
       <form
-        action={addMovie}
         className="bg-slate-200 p-5 space-y-3 rounded-lg mx-auto  w-max"
       >
         <div>
@@ -21,6 +20,8 @@ const Form = async () => {
             className="rounded p-1 focus:outline-none"
           />
         </div>
+
+
         <div>
           <label htmlFor="movie_name" className="mr-2">
             Name
@@ -31,19 +32,21 @@ const Form = async () => {
             className="rounded p-1 focus:outline-none"
           />
         </div>
+
         <div>
-          <label htmlFor="leadRoleBy" className="mr-2">
+          <label htmlFor="movie_name" className="mr-2">
             Actors
           </label>
           <input
             type="text"
-            name="leadRoleBy"
+            name="actors"
             className="rounded p-1 focus:outline-none"
           />
         </div>
+        
         <div>
-          <label htmlFor="leadRoleBy" className="mr-2">
-            Release date
+          <label htmlFor="movie_name" className="mr-2">
+            Release Date
           </label>
           <input
             type="text"
@@ -51,16 +54,20 @@ const Form = async () => {
             className="rounded p-1 focus:outline-none"
           />
         </div>
+
+
         <div>
           <label htmlFor="imageSrc" className="mr-2">
             Image
           </label>
           <input
             type="file"
-            name="movie_thumbnail"
+            name="movie_detail_thumbnail"
             className="rounded px-2 p-1 focus:outline-none"
           />
         </div>
+
+
         <div className="flex justify-center">
           <button
             type="submit"
@@ -74,4 +81,4 @@ const Form = async () => {
   );
 };
 
-export default Form;
+export default DetailsForm;
