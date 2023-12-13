@@ -7,7 +7,7 @@ const Moviespage = async () => {
     <div className="flex flex-wrap gap-20 mt-5">
       {movies.map((movie) => {
         return (
-          <Link href={`/dashboard/movies/${movie.movie_id}`} key={movie.movie_id}>
+          <Link href={`/dashboard/movies/${movie.movie_id}`} key={movie.movie_id} title={`Movie No. ${movie.movie_id}`}>
             <Card
               name={movie.name}
               imageSrc={movie.imageSrc}

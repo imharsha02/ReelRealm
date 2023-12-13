@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 import { unstable_noStore as noStore } from "next/cache";
-import { User, Shows, Movies, Sequel, Detail } from "./definations";
+import { User, Shows, Movies, Detail } from "./definations";
 export async function fetchShows() {
   try {
     const shows = await sql<Shows> `SELECT * FROM shows`;
@@ -12,23 +12,13 @@ export async function fetchShows() {
 }
 export async function fetchMovies() {
   try {
-    const movies = await sql<Movies> `SELECT * FROM movies`;
+    const movies = await sql `SELECT * from movies`;
     return movies.rows;
   } catch (error) {
     console.error("Database error:", error);
     throw new Error("Failed to fetch data");
   }
 }
-
-export async function fetchSequels() {
-  try {
-    const sequels = await sql<Sequel> `SELECT * FROM sequels`;
-    return sequels.rows;
-  } catch (error) {
-    console.error("Database error:", error);
-    throw new Error("Failed to fetch data");
-  }
-};
 
 export async function fetchDetails(id:number) {
   noStore()

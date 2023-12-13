@@ -20,13 +20,6 @@ const Navbar = () => {
         >
           Home
         </Link>
-        <Link
-          href="/dashboard/movies/sequel"
-          className="bg-blue-500 px-5 py-2 text-white border-none rounded-md"
-          title="Go to sequels page"
-        >
-          Sequels
-        </Link>
       </div>
     </div>
   );
