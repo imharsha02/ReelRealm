@@ -3,13 +3,15 @@ import { fetchMovies } from "@/app/lib/utils";
 import { fetchDetails } from "@/app/lib/utils";
 import Image from "next/image";
 import Pagination from "../_components/Pagination";
+import { Movies } from "@/app/lib/definations";
 
 const IndividualMovie = async ({
   params,
 }: {
   params: { movie_id: number };
 }) => {
-  const allMovies = await fetchMovies();
+  const allMovies:Movies[] = await fetchMovies();
+  console.log(typeof(allMovies));
   const movieDetails = await fetchDetails(params.movie_id);
 
   return (

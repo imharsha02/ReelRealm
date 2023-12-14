@@ -13,7 +13,11 @@ export async function fetchShows() {
 export async function fetchMovies() {
   try {
     const movies = await sql `SELECT * from movies`;
-    return movies.rows;
+    return movies.rows.map(row => ({
+      movie_id: row.movie_id,
+      name: row.name,
+      imageSrc: row.imageSrc
+    })) as Movies[];
   } catch (error) {
     console.error("Database error:", error);
     throw new Error("Failed to fetch data");
