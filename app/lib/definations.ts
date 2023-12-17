@@ -12,10 +12,10 @@ export type Shows = {
     imageSrc:string
 }
 
-export type Movies = {
-    movie_id:number,
-    name:string,
-    imageSrc:string
+export interface Movies {
+    movie_id:number;
+    name:string;
+    imageSrc:string;
 }
 
 export type Detail = {

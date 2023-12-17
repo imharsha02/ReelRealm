@@ -1,15 +1,13 @@
 import { fetchDetails } from "@/app/lib/utils";
-import Form from "@/app/ui/movies/EditForm";
+import EditForm from "@/app/ui/movies/EditForm";
 
-const EditForm = async ({ params }: { params: { movie_id: number } }) => {
+const EditPage = async ({ params }: { params: { movie_id: number } }) => {
   const id = params.movie_id;
-  const individualMovie = await fetchDetails(id)
-  const movieToEdit = Array.isArray(individualMovie) ? individualMovie[0] : individualMovie;
-  return (
-    <div>
-      <Form movieDetails={movieToEdit} />
-    </div>
-  );
+  const individualMovie = await fetchDetails(id);
+  const movieToEdit = Array.isArray(individualMovie)
+    ? individualMovie[0]
+    : individualMovie;
+  return <EditForm movieDetails={movieToEdit}/>;
 };
 
-export default EditForm;
+export default EditPage;

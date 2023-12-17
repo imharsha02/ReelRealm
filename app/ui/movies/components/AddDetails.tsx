@@ -1,20 +1,11 @@
-import { fetchMoviesWithNoDetails } from "@/app/lib/utils";
+import { Movies } from "@/app/lib/definations"
 
-const DetailsForm = async () => {
-  const moviesWithNoDetails = await fetchMoviesWithNoDetails();
-  //console.log("The movies are:" + "The type of 'moviesWithNoDetails' is: " + typeof(moviesWithNoDetails), moviesWithNoDetails);
-  let individualMovie = moviesWithNoDetails.map((movie) => {
-    return {
-      "movie_id":movie.movie_id,
-      "name":movie.name,
-      "imageSrc":movie.imageSrc
-    }
-  })
-  console.log(individualMovie)
-  return (
-    <div className=" max-w-screen mx-auto py-10">
+import Link from 'next/link'
+const AddDetails = ({movie}:{movie:Movies}) => {
+    return (
+      <div className=" max-w-screen mx-auto py-10">
       <form
-        className="bg-slate-200 p-5 space-y-3 rounded-lg mx-auto  w-max"
+        className="bg-slate-200 p-5 space-y-3 rounded-lg mx-auto w-max"
       >
         <div>
           <label htmlFor="movie_id" className="mr-2">
@@ -24,10 +15,10 @@ const DetailsForm = async () => {
             name="movie_id"
             type="number"
             disabled
+            defaultValue={movie.movie_id}
             className="rounded p-1 focus:outline-none"
           />
         </div>
-
 
         <div>
           <label htmlFor="movie_name" className="mr-2">
@@ -36,25 +27,26 @@ const DetailsForm = async () => {
           <input
             type="text"
             name="movie_name"
+            disabled
+            defaultValue={movie.name}
             className="rounded p-1 focus:outline-none"
-            
           />
         </div>
 
         <div>
-          <label htmlFor="movie_name" className="mr-2">
+          <label htmlFor="leadRoleBy" className="mr-2">
             Actors
           </label>
           <input
             type="text"
-            name="actors"
+            name="leadRoleBy"
             className="rounded p-1 focus:outline-none"
           />
         </div>
-        
+
         <div>
-          <label htmlFor="movie_name" className="mr-2">
-            Release Date
+          <label htmlFor="release_date" className="mr-2">
+            Release date
           </label>
           <input
             type="text"
@@ -62,31 +54,37 @@ const DetailsForm = async () => {
             className="rounded p-1 focus:outline-none"
           />
         </div>
-
-
         <div>
           <label htmlFor="imageSrc" className="mr-2">
             Image
           </label>
           <input
             type="file"
-            name="movie_detail_thumbnail"
+            name="movie_thumbnail"
             className="rounded px-2 p-1 focus:outline-none"
+            disabled
+            defaultValue={movie.imageSrc}
           />
         </div>
-
-
         <div className="flex justify-center">
-          <button
-            type="submit"
-            className="bg-blue-500 text-white font-bold px-5 py-2 rounded-md hover:bg-blue-400 transition"
-          >
-            Add
-          </button>
+          <div className="mt-6 flex justify-end gap-4">
+            <Link
+              href="/dashboard/movies"
+              className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
+            >
+              Cancel
+            </Link>
+            <button
+              className="bg-blue-500 hover:bg-blue-400 text-white px-5 py-2"
+              type="submit"
+            >
+              Done
+            </button>
+          </div>
         </div>
       </form>
     </div>
-  );
-};
+    )
+}
 
-export default DetailsForm;
+export default AddDetails

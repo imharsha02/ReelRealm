@@ -105,3 +105,8 @@ export async function updateMovie(id: number, formData: FormData) {
   revalidatePath(`/dashboard/movies`);
   redirect(`/dashboard/movies/${id}`);
 }
+
+export async function deleteMovie(id:number){
+  await sql `DELETE FROM movies WHERE movie_id=${id}`;
+  revalidatePath('/dashboard/movies')
+}
