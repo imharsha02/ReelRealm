@@ -1,7 +1,6 @@
 // Users
 const users = [
   {
-    id: "1",
     name: "David",
     email: "somemail@gmail.com",
     password: "somepassword",

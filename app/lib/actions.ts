@@ -29,12 +29,11 @@ export async function authenticate(
 
 export async function addUser(formData:FormData){
   const userSchema = z.object({
-    id:z.string(),
     name:z.string(),
     email:z.string().email(),
     password:z.string(),
   })
-  const user = userSchema.omit({id:true});
+  const user = userSchema
   const userDetails = user.parse({
     name:formData.get("username"),
     email:formData.get("useremail"),
@@ -44,7 +43,7 @@ export async function addUser(formData:FormData){
   try{
 
     await sql `
-    INSERT INTO users (id,name,email,password) VALUES (${userDetails.name},${userDetails.name}, ${userDetails.email}, ${hashedPassword});
+    INSERT INTO users (name,email,password) VALUES (${userDetails.name}, ${userDetails.email}, ${hashedPassword});
     `;
   }catch(error){
     console.error("Failed to store user", error);
@@ -65,7 +64,6 @@ export async function addMovie(formData: FormData) {
 
   // Now parse and validate the other data
   const movieSchema = z.object({
-    movie_id:z.number(),
     name: z.string(),
     actors: z.string(),
     release_date: z.string(),
@@ -76,7 +74,7 @@ export async function addMovie(formData: FormData) {
     }),
   });
 
-  const movie = movieSchema.omit({ actors: true, release_date: true, movie_id:true });
+  const movie = movieSchema.omit({actors: true, release_date: true });
   const movieData = movie.parse({
     name: formData.get("movie_name"),
     thumbnail:

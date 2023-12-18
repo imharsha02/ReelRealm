@@ -11,8 +11,11 @@ async function seedUsers(client) {
 
     // Creating users table
     const createTable = await client.sql`
+
+    DROP TABLE IF EXISTS users;
+
             CREATE TABLE IF NOT EXISTS users(
-                id VARCHAR(225) PRIMARY KEY,
+                id SERIAL PRIMARY KEY,
                 name VARCHAR(225) NOT NULL,
                 email TEXT NOT NULL UNIQUE,
                 password TEXT NOT NULL
@@ -25,8 +28,8 @@ async function seedUsers(client) {
       users.map(async (user) => {
         const hashedPassword = await bcrypt.hash(user.password, 10);
         return client.sql`
-                    INSERT INTO users (id,name,email,password)
-                    VALUES(${user.id}, ${user.name}, ${user.email}, ${hashedPassword}) ON CONFLICT (id) DO NOTHING;
+                    INSERT INTO users (name,email,password)
+                    VALUES(${user.name}, ${user.email}, ${hashedPassword});
                 `;
       })
     );
