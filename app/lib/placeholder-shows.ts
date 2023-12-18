@@ -8,39 +8,6 @@ const users = [
   },
 ];
 
-//Shows
-const shows = [
-  {
-    show_id: "1",
-    name: "The Mentalist",
-    episodes: 150,
-    imageSrc: "/thumbnails/mentalist.jpeg",
-  },
-  {
-    show_id: "2",
-    name: "The Dragon Prince",
-    episodes: 45,
-    imageSrc: "/thumbnails/dragonprince.jpg",
-  },
-  {
-    show_id: "3",
-    name: "Loki",
-    episodes: 12,
-    imageSrc: "/thumbnails/loki.jpeg",
-  },
-  {
-    show_id: "4",
-    name: "Marvel What if...?",
-    episodes: 9,
-    imageSrc: "/thumbnails/whatif.jpeg",
-  },
-  {
-    show_id: "5",
-    name: "Avatar the Last Airbender",
-    episodes: 61,
-    imageSrc: "/thumbnails/atla.jpeg",
-  },
-];
 
 // Movies
 const movies = [
@@ -364,7 +331,6 @@ const details = [
 
 module.exports = {
   users,
-  shows,
   movies,
   details,
 };

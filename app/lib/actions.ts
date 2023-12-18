@@ -4,6 +4,54 @@ import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import uploadThumbnail from "./uploadThumbnail";
 import { redirect } from "next/navigation";
+import bcrypt from "bcrypt";
+import { signIn } from '@/auth';
+import { AuthError } from 'next-auth';
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
+      }
+    }
+    throw error;
+  }
+}
+
+export async function addUser(formData:FormData){
+  const userSchema = z.object({
+    id:z.string(),
+    name:z.string(),
+    email:z.string().email(),
+    password:z.string(),
+  })
+  const user = userSchema.omit({id:true});
+  const userDetails = user.parse({
+    name:formData.get("username"),
+    email:formData.get("useremail"),
+    password:formData.get("password")
+  })
+  const hashedPassword = await bcrypt.hash(userDetails.password, 10);
+  try{
+
+    await sql `
+    INSERT INTO users (id,name,email,password) VALUES (${userDetails.name},${userDetails.name}, ${userDetails.email}, ${hashedPassword});
+    `;
+  }catch(error){
+    console.error("Failed to store user", error);
+  }
+  revalidatePath("/dashboard");
+  redirect("/dashboard");
+}
 
 export async function addMovie(formData: FormData) {
   // Handle the file separately
@@ -17,6 +65,7 @@ export async function addMovie(formData: FormData) {
 
   // Now parse and validate the other data
   const movieSchema = z.object({
+    movie_id:z.number(),
     name: z.string(),
     actors: z.string(),
     release_date: z.string(),
@@ -27,7 +76,7 @@ export async function addMovie(formData: FormData) {
     }),
   });
 
-  const movie = movieSchema.omit({ actors: true, release_date: true });
+  const movie = movieSchema.omit({ actors: true, release_date: true, movie_id:true });
   const movieData = movie.parse({
     name: formData.get("movie_name"),
     thumbnail:
@@ -66,18 +115,25 @@ export async function addMovie(formData: FormData) {
   });
 
   // Insert movieData into database
-  await sql`
-  INSERT INTO movies (name, imageSrc) VALUES (${movieData.name}, ${thumbnailUrl})
-  `;
+  try{
 
+    await sql`
+    INSERT INTO movies (name, imageSrc) VALUES (${movieData.name}, ${thumbnailUrl})
+    `;
+  }catch(error){
+    console.error("Failed to add to movies table: ", error)
+  }
+  
   // Insert detailsData into database
-  await sql`
-  INSERT INTO details (movie_name,leadRoleBy,release_date,imageSrc)
-  VALUES(${detailsData.name}, ${detailsData.actors}, ${detailsData.release_date} ,${thumbnailUrl})
-  `;
-  // await sql`
-  //     INSERT INTO details (movie_name, leadRoleBy, release_date, imageSrc) VALUES (${detailsData.name}, ${detailsData.actors}, ${detailsData.release_date},  ${thumbnailUrl})
-  //   `;
+  try{
+    
+    await sql`
+    INSERT INTO details (movie_name,leadRoleBy,release_date,imageSrc)
+    VALUES(${detailsData.name}, ${detailsData.actors}, ${detailsData.release_date} ,${thumbnailUrl})
+    `;
+  }catch(error){
+    console.error("Failed to add to details table: ", error)
+  }
   revalidatePath("/dashboard/movies");
   redirect("/dashboard/movies");
 }
@@ -96,17 +152,26 @@ export async function updateMovie(id: number, formData: FormData) {
     actors: formData.get("leadRoleBy"),
     release_date: formData.get("release_date"),
   });
+  try{
 
-  await sql`
-    UPDATE details 
-    SET movie_name = ${movie_name}, leadRoleBy = ${actors}, release_date = ${release_date} 
-    WHERE movie_id = ${id}
-  `;
+    await sql`
+      UPDATE details 
+      SET movie_name = ${movie_name}, leadRoleBy = ${actors}, release_date = ${release_date} 
+      WHERE movie_id = ${id}
+    `;
+  }catch(error){
+    console.error("Failed to update details",error)
+  }
   revalidatePath(`/dashboard/movies`);
   redirect(`/dashboard/movies/${id}`);
 }
 
 export async function deleteMovie(id:number){
-  await sql `DELETE FROM movies WHERE movie_id=${id}`;
+  try{
+
+    await sql `DELETE FROM movies WHERE movie_id=${id}`;
+  }catch(error){
+    console.error("Failed to delete movie: ",error)
+  }
   revalidatePath('/dashboard/movies')
 }

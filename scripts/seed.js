@@ -1,7 +1,6 @@
 const { db } = require("@vercel/postgres");
 const {
   users,
-  shows,
   movies,
   details,
 } = require("../app/lib/placeholder-shows.ts");
@@ -44,38 +43,10 @@ async function seedUsers(client) {
 
 async function seedShows(client) {
   try {
-    //Creating shows table
-    const createTable = await client.sql`
-            CREATE TABLE IF NOT EXISTS shows(
-                show_id VARCHAR(225) PRIMARY KEY,
-                name VARCHAR(225) NOT NULL,
-                episodes INT NOT NULL,
-                imageSrc VARCHAR(225) NOT NULL
-            );
-        `;
-    console.log("Created shows table");
+    await client.sql`DROP TABLE IF EXISTS shows;`;
 
-    //Inserting into shows table
-    const insertedShows = await Promise.all(
-      shows.map(
-        (show) =>
-          client.sql`
-                    INSERT INTO shows (show_id,name,episodes,imageSrc)
-                    VALUES(${show.show_id}, ${show.name}, ${show.episodes}, ${show.imageSrc}) ON CONFLICT (show_id) DO UPDATE SET
-                    name = EXCLUDED.name,
-                    episodes = EXCLUDED.episodes,
-                    imageSrc = EXCLUDED.imageSrc;
-                `
-      )
-    );
-
-    console.log(`Seeded ${insertedShows.length} shows`);
-    return {
-      createTable,
-      shows: insertedShows,
-    };
   } catch (error) {
-    console.error("Error seeding shows:", error);
+    console.error("Error deleting shows:", error);
     throw error;
   }
 }

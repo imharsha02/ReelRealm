@@ -5,13 +5,6 @@ export type User = {
     password:string
 }
 
-export type Shows = {
-    show_id:string,
-    name:string,
-    episodes:string,
-    imageSrc:string
-}
-
 export interface Movies {
     movie_id:number;
     name:string;

@@ -1,7 +1,6 @@
 "use client";
 import { CiHome } from "react-icons/ci";
 import { MdOutlineMovieFilter } from "react-icons/md";
-import { PiTelevision } from "react-icons/pi";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
@@ -15,11 +14,6 @@ const links = [
     name: "Movies",
     href: "/dashboard/movies",
     icon: MdOutlineMovieFilter,
-  },
-  {
-    name: "Shows",
-    href: "/dashboard/shows",
-    icon: PiTelevision,
   },
 ];
 const NavLinks = () => {
