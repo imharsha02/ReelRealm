@@ -3,6 +3,10 @@ import { fetchMovies } from "@/app/lib/utils";
 import Link from "next/link";
 import UpdateMovieButton from "@/app/ui/dashboard/UpdateMovieButton/UpdateMovieButton";
 import DeleteMovieButton from "@/app/ui/dashboard/DeleteMovieButton.tsx/DeleteMovieButton";
+import { Metadata } from "next";
+export const metadata:Metadata = {
+  title:"Movies",
+}
 const Moviespage = async () => {
   const movies = await fetchMovies();
   return (

@@ -11,7 +11,6 @@ const IndividualMovie = async ({
   params: { movie_id: number };
 }) => {
   const allMovies:Movies[] = await fetchMovies();
-  console.log(typeof(allMovies));
   const movieDetails = await fetchDetails(params.movie_id);
 
   return (
