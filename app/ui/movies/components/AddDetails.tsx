@@ -1,10 +1,12 @@
+import { AddDetailsAction } from "@/app/lib/actions"
 import { Movies } from "@/app/lib/definations"
 
 import Link from 'next/link'
-const AddDetails = ({movie}:{movie:Movies}) => {
+const AddDetails = ({id,movie}:{id:number, movie:Movies}) => {
+  const addDetailsWithId = AddDetailsAction.bind(null,id);
     return (
       <div className=" max-w-screen mx-auto py-10">
-      <form
+      <form action={addDetailsWithId}
         className="bg-slate-200 p-5 space-y-3 rounded-lg mx-auto w-max"
       >
         <div>
@@ -19,7 +21,6 @@ const AddDetails = ({movie}:{movie:Movies}) => {
             className="rounded p-1 focus:outline-none"
           />
         </div>
-
         <div>
           <label htmlFor="movie_name" className="mr-2">
             Name
@@ -27,11 +28,11 @@ const AddDetails = ({movie}:{movie:Movies}) => {
           <input
             type="text"
             name="movie_name"
-            disabled
             defaultValue={movie.name}
             className="rounded p-1 focus:outline-none"
           />
         </div>
+
 
         <div>
           <label htmlFor="leadRoleBy" className="mr-2">
@@ -62,7 +63,6 @@ const AddDetails = ({movie}:{movie:Movies}) => {
             type="file"
             name="movie_thumbnail"
             className="rounded px-2 p-1 focus:outline-none"
-            disabled
             defaultValue={movie.imageSrc}
           />
         </div>
