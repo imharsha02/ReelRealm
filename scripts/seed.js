@@ -102,7 +102,7 @@ async function seedDetails(client) {
             CREATE TABLE IF NOT EXISTS details(
                 movie_id SERIAL PRIMARY KEY,
                 movie_name VARCHAR(225) NOT NULL,
-                leadRoleBy VARCHAR(225) NOT NULL,
+                lead_role_by VARCHAR(225) NOT NULL,
                 release_date VARCHAR(225) NOT NULL,
                 imageSrc VARCHAR(225) NOT NULL
             )
@@ -112,8 +112,8 @@ async function seedDetails(client) {
       details.map(
         (detail) =>
           client.sql`
-                  INSERT INTO details (movie_name,leadRoleBy,release_date,imageSrc)
-                  VALUES(${detail.movie_name}, ${detail.leadRoleBy}, ${detail.release_date} ,${detail.imageSrc})
+                  INSERT INTO details (movie_name,lead_role_by,release_date,imageSrc)
+                  VALUES(${detail.movie_name}, ${detail.lead_role_by}, ${detail.release_date} ,${detail.imageSrc})
               `
       )
     );

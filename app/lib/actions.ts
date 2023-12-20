@@ -98,7 +98,7 @@ export async function addMovie(formData: FormData) {
 
   const detailsData = details.parse({
     name: formData.get("movie_name"),
-    actors: formData.get("leadRoleBy"),
+    actors: formData.get("lead_role_by"),
     release_date: formData.get("release_date"),
     thumbnail:
       thumbnailFile instanceof File
@@ -112,7 +112,7 @@ export async function addMovie(formData: FormData) {
 
   console.log({
     movieName: formData.get("movie_name"),
-    leadRoleBy: formData.get("leadRoleBy"),
+    lead_role_by: formData.get("lead_role_by"),
     releaseDate: formData.get("release_date"),
     // Check if the thumbnail file is received correctly
     thumbnailFile:
@@ -131,7 +131,7 @@ export async function addMovie(formData: FormData) {
   // Insert detailsData into database
   try {
     await sql`
-    INSERT INTO details (movie_name,leadRoleBy,release_date,imageSrc)
+    INSERT INTO details (movie_name,lead_role_by,release_date,imageSrc)
     VALUES(${detailsData.name}, ${detailsData.actors}, ${detailsData.release_date} ,${thumbnailUrl})
     `;
   } catch (error) {
@@ -158,13 +158,13 @@ export async function updateMovie(id: number, formData: FormData) {
   const { movie_name, actors, release_date } = updateMovie.parse({
     movie_id: formData.get("movie_id"),
     movie_name: formData.get("movie_name"),
-    actors: formData.get("leadRoleBy"),
+    actors: formData.get("lead_role_by"),
     release_date: formData.get("release_date"),
   });
   try {
     await sql`
       UPDATE details 
-      SET movie_name = ${movie_name}, leadRoleBy = ${actors}, release_date = ${release_date} 
+      SET movie_name = ${movie_name}, lead_role_by = ${actors}, release_date = ${release_date} 
       WHERE movie_id = ${id}
     `;
   } catch (error) {
@@ -219,14 +219,14 @@ export async function AddDetailsAction(id:number,formData:FormData) {
   const newDetails = details.parse({
     movie_id:formData.get("movie_id"),
     movie_name: formData.get("movie_name"),
-    actors: formData.get("leadRoleBy"),
+    actors: formData.get("lead_role_by"),
     release_date: formData.get("release_date"),
     imageSrc:thumbnailUrl
   });
   try{
 
     await sql`
-      INSERT INTO details (movie_name,leadRoleBy,release_date,imageSrc) VALUES(${newDetails.movie_name}, ${newDetails.actors}, ${newDetails.release_date}, ${thumbnailUrl})
+      INSERT INTO details (movie_name,lead_role_by,release_date,imageSrc) VALUES(${newDetails.movie_name}, ${newDetails.actors}, ${newDetails.release_date}, ${thumbnailUrl})
     `;
   }catch(error){
     console.error(error);

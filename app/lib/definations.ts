@@ -14,7 +14,7 @@ export interface Movies {
 export type Detail = {
     movie_id:number,
     movie_name:string,
-    leadRoleBy:string,
+    lead_role_by:string,
     release_date:string,
     imageSrc:string
 }

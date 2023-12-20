@@ -46,13 +46,13 @@ const EditForm = ({ movieDetails, id}: { movieDetails: Detail, id?:number}) => {
           </div>
 
           <div>
-            <label htmlFor="leadRoleBy" className="mr-2">
+            <label htmlFor="lead_role_by" className="mr-2">
               Actors
             </label>
             <input
               type="text"
-              name="leadRoleBy"
-              defaultValue={movieDetails.leadRoleBy}
+              name="lead_role_by"
+              defaultValue={movieDetails.lead_role_by}
               className="rounded p-1 focus:outline-none"
             />
           </div>

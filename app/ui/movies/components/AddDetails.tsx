@@ -35,12 +35,12 @@ const AddDetails = ({id,movie}:{id:number, movie:Movies}) => {
 
 
         <div>
-          <label htmlFor="leadRoleBy" className="mr-2">
+          <label htmlFor="lead_role_by" className="mr-2">
             Actors
           </label>
           <input
             type="text"
-            name="leadRoleBy"
+            name="lead_role_by"
             className="rounded p-1 focus:outline-none"
           />
         </div>
