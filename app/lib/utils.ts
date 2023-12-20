@@ -40,7 +40,10 @@ export async function fetchDetails(id: number) {
   try {
     const details =
       await sql<Detail>`SELECT * FROM details WHERE movie_id = ${id}`;
-    return details.rows;
+    if(details.rows.length===0){
+      throw new Error("No details found for the give ID")
+    }
+    return details.rows[0];
   } catch (error) {
     console.error("Database error:", error);
     throw new Error("Failed to fetch data");

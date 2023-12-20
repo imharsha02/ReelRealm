@@ -108,99 +108,99 @@ const movies = [
   },
   {
     name: "Transformers Dark of the Moon",
-    imageSrc: "/thubnails/transformers3.jpg",
+    imageSrc: "/thumbnails/transformers3.jpg",
   },
   {
     name: "Transformers The Last Knight",
-    imageSrc: "/thubnails/transformers4.jpeg",
+    imageSrc: "/thumbnails/transformers4.jpeg",
   },
   {
     name: "Bumblebee",
-    imageSrc: "/thubnails/bumblebee.jpg",
+    imageSrc: "/thumbnails/bumblebee.jpg",
   },
   {
     name: "Transformers Rise of the Beasts",
-    imageSrc: "/thubnails/transformers5.jpeg",
+    imageSrc: "/thumbnails/transformers5.jpeg",
   },
   {
     name: "Godzilla vs Kong",
-    imageSrc: "/thubnails/godzillavskong.jpg",
+    imageSrc: "/thumbnails/godzillavskong.jpg",
   },
   {
     name: "Dr Strange In The Multiverse of Madness",
-    imageSrc: "/thubnails/drstrange2.jpeg",
+    imageSrc: "/thumbnails/drstrange2.jpeg",
   },
   {
     name: "Transporter 2",
-    imageSrc: "/thubnails/transporter2.jpg",
+    imageSrc: "/thumbnails/transporter2.jpg",
   },
   {
     name: "Transporter 3",
-    imageSrc: "/thubnails/transporter3.jpg",
+    imageSrc: "/thumbnails/transporter3.jpg",
   },
   {
     name: "Transporter Refuled",
-    imageSrc: "/thubnails/transporter4.jpeg",
+    imageSrc: "/thumbnails/transporter4.jpeg",
   },
   {
     name: "The Dark Knight",
-    imageSrc: "/thubnails/batman2.jpeg",
+    imageSrc: "/thumbnails/batman2.jpeg",
   },
   {
     name: "The Dark Knight Rises",
-    imageSrc: "/thubnails/batman3.jpg",
+    imageSrc: "/thumbnails/batman3.jpg",
   },
   {
     name: "The Mummy Returns",
-    imageSrc: "/thubnails/mummy2.jpeg",
+    imageSrc: "/thumbnails/mummy2.jpeg",
   },
   {
     name: "How to train your dragon 2",
-    imageSrc: "/thubnails/httyd2.jpeg",
+    imageSrc: "/thumbnails/httyd2.jpeg",
   },
   {
     name: "How to train your dragon the Hidden World",
-    imageSrc: "/thubnails/httyd3.jpeg",
+    imageSrc: "/thumbnails/httyd3.jpeg",
   },
   {
     name: "Gardians of the Galexy Vol 2",
-    imageSrc: "/thubnails/gardiansofthegalexy2.jpg",
+    imageSrc: "/thumbnails/gardiansofthegalexy2.jpg",
   },
   {
     name: "Gardians of the Galexy Vol 3",
-    imageSrc: "/thubnails/gardiansofthegalexy3.avif",
+    imageSrc: "/thumbnails/gardiansofthegalexy3.avif",
   },
   {
     name: "Thor the Dark wold",
-    imageSrc: "/thubnails/thor2.jpg",
+    imageSrc: "/thumbnails/thor2.jpg",
   },
   {
     name: "Thor Ragnarok",
-    imageSrc: "/thubnails/thor3.jpeg",
+    imageSrc: "/thumbnails/thor3.jpeg",
   },
   {
     name: "Spiderman 2",
-    imageSrc: "/thubnails/spiderman2.jpg",
+    imageSrc: "/thumbnails/spiderman2.jpg",
   },
   {
     name: "Spiderman 3",
-    imageSrc: "/thubnails/spierman3.jpg",
+    imageSrc: "/thumbnails/spierman3.jpg",
   },
   {
     name: "Dead pool 2",
-    imageSrc: "/thubnails/deadpool2.jpg",
+    imageSrc: "/thumbnails/deadpool2.jpg",
   },
   {
     name: "Frozen 2",
-    imageSrc: "/thubnails/frozen2.jpeg",
+    imageSrc: "/thumbnails/frozen2.jpeg",
   },
   {
     name: "Captain America and the Winter Soldier",
-    imageSrc: "/thubnails/captainamerica2.jpg",
+    imageSrc: "/thumbnails/captainamerica2.jpg",
   },
   {
     name: "Captain America Civil War",
-    imageSrc: "/thubnails/captainamerica3.jpeg",
+    imageSrc: "/thumbnails/captainamerica3.jpeg",
   },
 ];
 

@@ -8,7 +8,7 @@ const DetailsPage = async () => {
   return (
     <div>
       {movies.map((movie) => (
-        <AddDetails movie={movie} key={movie.movie_id} />
+        <AddDetails movie={movie} key={movie.movie_id} id={movie.movie_id} />
       ))}
     </div>
   );
