@@ -8,7 +8,7 @@ export type User = {
 export interface Movies {
     movie_id:number;
     name:string;
-    imageSrc:string;
+    Image_source:string;
 }
 
 export type Detail = {
@@ -16,5 +16,5 @@ export type Detail = {
     movie_name:string,
     lead_role_by:string,
     release_date:string,
-    imageSrc:string
+    Image_source:string
 }

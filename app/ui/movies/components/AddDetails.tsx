@@ -56,14 +56,14 @@ const AddDetails = ({id,movie}:{id:number, movie:Movies}) => {
           />
         </div>
         <div>
-          <label htmlFor="imageSrc" className="mr-2">
+          <label htmlFor="Image_source" className="mr-2">
             Image
           </label>
           <input
             type="file"
             name="movie_thumbnail"
             className="rounded px-2 p-1 focus:outline-none"
-            defaultValue={movie.imageSrc}
+            defaultValue={movie.Image_source}
           />
         </div>
         <div className="flex justify-center">

@@ -122,7 +122,7 @@ export async function addMovie(formData: FormData) {
   // Insert movieData into database
   try {
     await sql`
-    INSERT INTO movies (name, imageSrc) VALUES (${movieData.name}, ${thumbnailUrl})
+    INSERT INTO movies (name, Image_source) VALUES (${movieData.name}, ${thumbnailUrl})
     `;
   } catch (error) {
     console.error("Failed to add to movies table: ", error);
@@ -131,7 +131,7 @@ export async function addMovie(formData: FormData) {
   // Insert detailsData into database
   try {
     await sql`
-    INSERT INTO details (movie_name,lead_role_by,release_date,imageSrc)
+    INSERT INTO details (movie_name,lead_role_by,release_date,Image_source)
     VALUES(${detailsData.name}, ${detailsData.actors}, ${detailsData.release_date} ,${thumbnailUrl})
     `;
   } catch (error) {
@@ -213,7 +213,7 @@ export async function AddDetailsAction(id:number,formData:FormData) {
     movie_name: z.string(),
     actors: z.string(),
     release_date: z.string(),
-    imageSrc:z.string().optional(),
+    Image_source:z.string().optional(),
   });
   const details = detailsSchema;
   const newDetails = details.parse({
@@ -221,12 +221,12 @@ export async function AddDetailsAction(id:number,formData:FormData) {
     movie_name: formData.get("movie_name"),
     actors: formData.get("lead_role_by"),
     release_date: formData.get("release_date"),
-    imageSrc:thumbnailUrl
+    Image_source:thumbnailUrl
   });
   try{
 
     await sql`
-      INSERT INTO details (movie_name,lead_role_by,release_date,imageSrc) VALUES(${newDetails.movie_name}, ${newDetails.actors}, ${newDetails.release_date}, ${thumbnailUrl})
+      INSERT INTO details (movie_name,lead_role_by,release_date,Image_source) VALUES(${newDetails.movie_name}, ${newDetails.actors}, ${newDetails.release_date}, ${thumbnailUrl})
     `;
   }catch(error){
     console.error(error);

@@ -52,7 +52,7 @@ const Form = async () => {
           />
         </div>
         <div>
-          <label htmlFor="imageSrc" className="mr-2">
+          <label htmlFor="Image_source" className="mr-2">
             Image
           </label>
           <input

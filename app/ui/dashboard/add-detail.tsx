@@ -7,7 +7,7 @@ const DetailsForm = async () => {
     return {
       "movie_id":movie.movie_id,
       "name":movie.name,
-      "imageSrc":movie.imageSrc
+      "Image_source":movie.Image_source
     }
   })
   console.log(individualMovie)
@@ -65,7 +65,7 @@ const DetailsForm = async () => {
 
 
         <div>
-          <label htmlFor="imageSrc" className="mr-2">
+          <label htmlFor="Image_source" className="mr-2">
             Image
           </label>
           <input

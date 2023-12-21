@@ -9,6 +9,7 @@ export const metadata:Metadata = {
 }
 const Moviespage = async () => {
   const movies = await fetchMovies();
+  console.log(movies);
   return (
     <div className="flex flex-wrap gap-10 mt-5">
       {movies.map((movie) => {
@@ -18,7 +19,7 @@ const Moviespage = async () => {
               href={`/dashboard/movies/${movie.movie_id}`}
               title={`Movie No. ${movie.movie_id}`}
             >
-              <Card name={movie.name} imageSrc={movie.imageSrc} />
+              <Card name={movie.name} Image_source={movie.Image_source} />
             </Link>
             <div className="flex justify-between">
               <UpdateMovieButton id={movie.movie_id} />
