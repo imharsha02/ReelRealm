@@ -10,6 +10,7 @@ export const metadata:Metadata = {
 }
 const Moviespage = async () => {
   const movies = await fetchMovies();
+  console.log(movies);
   return (
     <div className="flex mr-20  flex-wrap gap-10 justify-start items-center mt-5">
       {movies.map((movie,index) => {
