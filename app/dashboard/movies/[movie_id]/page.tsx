@@ -23,7 +23,7 @@ const IndividualMovie = async ({
     <>
       <div className="my-5 mx-auto w-max space-y-3">
         <Image
-          src={movieDetails.imageSrc}
+          src={movieDetails.Image_source}
           alt=""
           className="rounded-lg p-3 bg-slate-100 border-none"
           height={600}

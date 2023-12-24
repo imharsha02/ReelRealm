@@ -13,7 +13,7 @@ export async function fetchMoviesWithNoDetails() {
     return moviesWithNoDetails.rows.map((row) => ({
       movie_id: row.movie_id,
       name: row.name,
-      imageSrc: row.imageSrc,
+      Image_source: row.Image_source,
     })) as Movies[];
   }catch(error){
     console.error("Database error:",error);
@@ -27,7 +27,7 @@ export async function fetchMovies() {
     return movies.rows.map((row) => ({
       movie_id: row.movie_id,
       name: row.name,
-      imageSrc: row.imageSrc,
+      Image_source: row.Image_source,
     })) as Movies[];
   } catch (error) {
     console.error("Database error:", error);

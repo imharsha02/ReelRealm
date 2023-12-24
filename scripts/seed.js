@@ -63,7 +63,7 @@ async function seedMovies(client) {
     CREATE TABLE movies (
       movie_id SERIAL PRIMARY KEY,
       name VARCHAR(225) NOT NULL,
-      imageSrc VARCHAR(225) NOT NULL
+      Image_source VARCHAR(225) NOT NULL
     );
         `;
     console.log("Created movies table");
@@ -73,8 +73,8 @@ async function seedMovies(client) {
       movies.map(
         (movie) =>
           client.sql`
-                    INSERT INTO movies (name,imageSrc)
-                    VALUES(${movie.name}, ${movie.imageSrc})
+                    INSERT INTO movies (name,Image_source)
+                    VALUES(${movie.name}, ${movie.Image_source})
                 `
       )
     );
@@ -104,7 +104,7 @@ async function seedDetails(client) {
                 movie_name VARCHAR(225) NOT NULL,
                 lead_role_by VARCHAR(225) NOT NULL,
                 release_date VARCHAR(225) NOT NULL,
-                imageSrc VARCHAR(225) NOT NULL
+                Image_source VARCHAR(225) NOT NULL
             )
         `;
     console.log("Created DETAILS table");
@@ -112,8 +112,8 @@ async function seedDetails(client) {
       details.map(
         (detail) =>
           client.sql`
-                  INSERT INTO details (movie_name,lead_role_by,release_date,imageSrc)
-                  VALUES(${detail.movie_name}, ${detail.lead_role_by}, ${detail.release_date} ,${detail.imageSrc})
+                  INSERT INTO details (movie_name,lead_role_by,release_date,Image_source)
+                  VALUES(${detail.movie_name}, ${detail.lead_role_by}, ${detail.release_date} ,${detail.Image_source})
               `
       )
     );
