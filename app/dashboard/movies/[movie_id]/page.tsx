@@ -2,6 +2,7 @@ import { kanit } from "@/app/ui/fonts";
 import { fetchMovies } from "@/app/lib/utils";
 import { fetchDetails } from "@/app/lib/utils";
 import Image from "next/image";
+import { images } from "@/app/lib/images";
 import Pagination from "../_components/Pagination";
 
 const IndividualMovie = async ({
@@ -19,11 +20,12 @@ const IndividualMovie = async ({
   console.log(movieDetails.lead_role_by);
   const movieId = Number(movieDetails.movie_id);
 
+  const imageWithIndex = images[movieDetails.movie_id-1]
   return (
     <>
       <div className="my-5 mx-auto w-max space-y-3">
         <Image
-          src={movieDetails.Image_source}
+          src={imageWithIndex.Image_source}
           alt=""
           className="rounded-lg p-3 bg-slate-100 border-none"
           height={600}
