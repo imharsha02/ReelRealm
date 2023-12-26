@@ -5,7 +5,7 @@ const DeleteMovieButton = ({id}:{id:number}) => {
     
   return (
     <form action={deleteMovieWithId}>
-        <button className="px-5 py-2 bg-blue-400 text-white border-none rounded-sm">
+        <button className="px-5 hover:cursor-pointer py-2 hover:bg-blue-400 transition bg-blue-500 text-white border-none rounded-sm">
             Delete
         </button>
     </form>

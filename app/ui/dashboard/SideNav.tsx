@@ -5,7 +5,7 @@ import NavLinks from "@/app/ui/dashboard/NavLinks";
 import { CiPower } from "react-icons/ci";
 const SideNav = () => {
   return (
-    <div className="flex h-full w-64 flex-col px-3 py-4 md:px-2">
+    <div className="flex h-screen w-64 flex-col px-3 py-4 md:px-2">
       <Link className="mb-2 flex rounded-md bg-blue-600 p-4" href="/">
         <div className="w-32 text-white md:w-40">
           <Logo />
