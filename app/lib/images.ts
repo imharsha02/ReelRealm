@@ -144,9 +144,12 @@ export const images = [
     Image_source: "/thumbnails/captainamerica3.jpeg",
   },
   {
+    Image_source: "/thumbnails/kp2.jpeg",
+  },
+  {
     Image_source: "/thumbnails/kungfupanda.jpeg",
   },
   {
-    Image_source: "/thumbnails/kp2.jpeg",
+    Image_source: "/thumbnails/rushhour.jpeg",
   },
 ];

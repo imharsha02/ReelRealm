@@ -10,12 +10,12 @@ export default async function Card({
   Image_source: string;
 }) {
   return (
-    <div className="p-5 space-y-2 w-36 bg-slate-100 rounded-md">
-      <div className="flex justify-center">
-        <Image src={Image_source} alt="" height={50} width={50} />
+    <div className="p-5 space-y-2 bg-slate-100 w-96 rounded-md">
+      <div className="flex items-center justify-center">
+        <Image src={Image_source} alt="" height={100} width={100} />
       </div>
       <div className="">
-        <h3 className={`flex flex-wrap text-center ${kanit.className}`}>{name}</h3>
+        <h3 className={`flex flex-wrap justify-center text-center ${kanit.className}`}>{name}</h3>
       </div>
     </div>
   );
