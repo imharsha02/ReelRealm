@@ -7,7 +7,7 @@ export default function MovieLayout({
 }) {
   return (
     <div>
-      <Navbar />
+        <Navbar />
       {children}
     </div>
   );
