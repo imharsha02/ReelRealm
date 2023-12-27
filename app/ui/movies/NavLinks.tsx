@@ -7,12 +7,12 @@ import clsx from "clsx";
 const links = [
   {
     name: "Home",
-    href: "/dashboard",
+    href: "/movies",
     icon: CiHome,
   },
   {
     name: "Movies",
-    href: "/dashboard/movies",
+    href: "/movies",
     icon: MdOutlineMovieFilter,
   },
 ];

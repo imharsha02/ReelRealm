@@ -18,7 +18,7 @@ const Pagination = ({
     <div className="flex w-full justify-between mt-3">
       {hasPrevMovie && (
         <Link
-          href={`/dashboard/movies/${movieId - 1}`}
+          href={`/movies/${movieId - 1}`}
           className={`bg-blue-500 rounded font-bold transition mr-auto hover:bg-blue-400 text-white px-5 py-1`}
         >
           Prev
@@ -26,7 +26,7 @@ const Pagination = ({
       )}
       {hasNextMovie && (
         <Link
-          href={`/dashboard/movies/${movieId + 1}`}
+          href={`/movies/${movieId + 1}`}
           className={`bg-blue-500 rounded font-bold transition ml-auto hover:bg-blue-400 text-white px-5 py-1`}
         >
           Next

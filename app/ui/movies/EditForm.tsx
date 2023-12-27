@@ -8,7 +8,7 @@ const EditForm = ({ movieDetails, id}: { movieDetails: Detail, id?:number}) => {
     return (
       <div className="flex flex-col justify-center">
         <h3>Sorry! No details were added for this movie.</h3>
-        <Link href={`/dashboard/movies/${id}/add-details`} className="w-max px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-400 transition text-white">
+        <Link href={`/movies/${id}/add-details`} className="w-max px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-400 transition text-white">
         Click to add details
       </Link>
       </div>
@@ -81,7 +81,7 @@ const EditForm = ({ movieDetails, id}: { movieDetails: Detail, id?:number}) => {
           <div className="flex justify-center">
             <div className="mt-6 flex justify-end gap-4">
               <Link
-                href="/dashboard/movies"
+                href="/movies"
                 className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
               >
                 Cancel

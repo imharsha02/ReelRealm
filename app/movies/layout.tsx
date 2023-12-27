@@ -6,7 +6,7 @@ export default function MovieLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    <div className="pt-4 w-full pl-10">
         <Navbar />
       {children}
     </div>

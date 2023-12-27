@@ -9,14 +9,14 @@ const Navbar = () => {
       <Logo />
       <div className="flex gap-3">
         <Link
-          href="/dashboard/movies/add"
+          href="/movies/add"
           className="bg-blue-500 px-5 py-2 text-white border-none rounded-md"
           title="Add a movie"
         >
           Add a movie
         </Link>
         <Link
-          href="/dashboard/movies"
+          href="/movies"
           className="bg-blue-500 px-5 py-2 text-white border-none rounded-md"
           title="Go to Dashboard"
         >

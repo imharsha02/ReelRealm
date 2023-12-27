@@ -1,4 +1,4 @@
-import Form from "@/app/ui/dashboard/add-form"
+import Form from "@/app/ui/movies/add-form"
 const AddPage = () => {
   return (
     <div>

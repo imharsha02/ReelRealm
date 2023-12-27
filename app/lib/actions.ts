@@ -47,8 +47,8 @@ export async function addUser(formData: FormData) {
   } catch (error) {
     console.error("Failed to store user", error);
   }
-  revalidatePath("/dashboard");
-  redirect("/dashboard");
+  revalidatePath("/movies");
+  redirect("/movies");
 }
 
 
@@ -137,8 +137,8 @@ export async function addMovie(formData: FormData) {
   } catch (error) {
     console.error("Failed to add to details table: ", error);
   }
-  revalidatePath("/dashboard/movies");
-  redirect("/dashboard/movies");
+  revalidatePath("/movies");
+  redirect("/movies");
 }
 
 
@@ -170,8 +170,8 @@ export async function updateMovie(id: number, formData: FormData) {
   } catch (error) {
     console.error("Failed to update details", error);
   }
-  revalidatePath(`/dashboard/movies`);
-  redirect(`/dashboard/movies/${id}`);
+  revalidatePath(`/movies`);
+  redirect(`/movies/${id}`);
 }
 
 
@@ -186,14 +186,14 @@ export async function deleteMovie(id: number) {
   } catch (error) {
     console.error("Failed to delete movie: ", error);
   }
-  revalidatePath("/dashboard/movies");
+  revalidatePath("/movies");
 
   try {
     await sql`DELETE FROM details WHERE movie_id=${id}`;
   } catch (error) {
     console.error("Failed to delete movie details");
   }
-  revalidatePath(`/dashboard/movies/${id}`);
+  revalidatePath(`/movies/${id}`);
 }
 
 
@@ -231,5 +231,5 @@ export async function AddDetailsAction(id:number,formData:FormData) {
   }catch(error){
     console.error(error);
   }
-  revalidatePath(`/dashboard/movies/${id}`);
+  revalidatePath(`/movies/${id}`);
 }
