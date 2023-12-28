@@ -23,7 +23,7 @@ const IndividualMovie = async ({
   const imageWithIndex = images[movieDetails.movie_id-1]
   return (
     <>
-      <div className="my-5 mx-auto border-red-900 w-max space-y-3">
+      <div className="my-5 mx-auto lg:w-max space-y-3">
         <Image
           src={imageWithIndex.Image_source}
           alt=""

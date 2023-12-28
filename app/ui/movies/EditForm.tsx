@@ -3,23 +3,32 @@ import { Detail } from "@/app/lib/definations";
 
 import Link from "next/link";
 
-const EditForm = ({ movieDetails, id}: { movieDetails: Detail, id?:number}) => {
+const EditForm = ({
+  movieDetails,
+  id,
+}: {
+  movieDetails: Detail;
+  id?: number;
+}) => {
   if (!movieDetails) {
     return (
       <div className="flex flex-col justify-center">
         <h3>Sorry! No details were added for this movie.</h3>
-        <Link href={`/movies/${id}/add-details`} className="w-max px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-400 transition text-white">
-        Click to add details
-      </Link>
+        <Link
+          href={`/movies/${id}/add-details`}
+          className="w-max px-5 py-2 rounded-lg bg-blue-500 hover:bg-blue-400 transition text-white"
+        >
+          Click to add details
+        </Link>
       </div>
     );
   } else {
     const updateMovieWithId = updateMovie.bind(null, movieDetails.movie_id);
     return (
-      <div className=" max-w-screen mx-auto py-10">
+      <div className="lg:max-w-screen mx-[9px] lg:mx-auto">
         <form
           action={updateMovieWithId}
-          className="bg-slate-200 p-5 space-y-3 rounded-lg mx-auto w-max"
+          className="bg-slate-200 overflow-hidden p-5 space-y-3 rounded-lg lg:mx-auto lg:w-max"
         >
           <div>
             <label htmlFor="movie_id" className="mr-2">

@@ -1,6 +1,7 @@
 "use client";
 
 import { Movies } from "@/app/lib/definations";
+import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import Link from "next/link";
 
 const Pagination = ({
@@ -19,17 +20,17 @@ const Pagination = ({
       {hasPrevMovie && (
         <Link
           href={`/movies/${movieId - 1}`}
-          className={`bg-blue-500 rounded font-bold transition mr-auto hover:bg-blue-400 text-white px-5 py-1`}
+          className={` transition mr-auto hover:scale-125 text-blue-500`}
         >
-          Prev
+          <FaCaretLeft  className=" h-9  w-9 pl-3 mb-6"/>
         </Link>
       )}
       {hasNextMovie && (
         <Link
           href={`/movies/${movieId + 1}`}
-          className={`bg-blue-500 rounded font-bold transition ml-auto hover:bg-blue-400 text-white px-5 py-1`}
+          className={` transition ml-auto hover:scale-125 text-blue-500`}
         >
-          Next
+          <FaCaretRight  className=" h-9  w-9 pr-3 mb-6"/>
         </Link>
       )}
     </div>
