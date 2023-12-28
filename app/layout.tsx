@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='w-full'>
       <body className={inter.className}>
         <div className='w-screen mx-auto md:w-auto'>
           {children}
