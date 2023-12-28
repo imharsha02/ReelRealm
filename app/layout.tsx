@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div>
+        <div className='w-screen mx-auto md:w-auto'>
           {children}
         </div>
       </body>

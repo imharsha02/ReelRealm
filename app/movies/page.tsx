@@ -12,7 +12,7 @@ const Moviespage = async () => {
   const movies = await fetchMovies();
   console.log(movies);
   return (
-    <div className="flex flex-wrap gap-10 w-[95.5%] justify-evenly items-center mt-5">
+    <div className="flex flex-wrap gap-10 md:w-[95.5%] justify-evenly items-center mt-5">
       {movies.map((movie, index) => {
         console.log(images[index]);
         const Image_source = images[index];

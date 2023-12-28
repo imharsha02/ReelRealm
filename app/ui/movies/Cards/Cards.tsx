@@ -10,7 +10,7 @@ export default async function Card({
   Image_source: string;
 }) {
   return (
-    <div className="p-5 space-y-2 bg-slate-100 w-96 rounded-md">
+    <div className="p-5 space-y-2 bg-slate-100 lg:w-96 rounded-md">
       <div className="flex items-center justify-center">
         <Image src={Image_source} alt="" height={200} width={200} />
       </div>
