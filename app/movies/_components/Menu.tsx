@@ -29,11 +29,9 @@ const Menu = () => {
             <Link href="/movies" className="flex items-center space-x-3">
               Home
             </Link>
-            <IoHomeOutline />
           </div>
           <div className="flex items-center">
             <Link href="/movies/add">Add movie</Link>
-            <GoPlus />
           </div>
           <SignoutLink />
         </div>
