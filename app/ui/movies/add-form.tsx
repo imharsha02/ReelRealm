@@ -4,10 +4,10 @@ const Form = async () => {
   const movies = await fetchMovies();
   const numberOfMovies = movies.length;
   return (
-    <div className=" max-w-screen mx-auto py-10">
+    <div className="lg:max-w-screen mx-[9px] lg:mx-auto">
       <form
         action={addMovie}
-        className="bg-slate-200 p-5 space-y-3 rounded-lg mx-auto  w-max"
+        className="bg-slate-200 overflow-hidden p-5 space-y-3 rounded-lg lg:mx-auto lg:w-max"
       >
         <div>
           <label htmlFor="movie_id" className="mr-2">
