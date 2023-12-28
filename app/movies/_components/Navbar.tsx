@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Logo from "@/app/ui/logo";
 import { signOut } from "@/auth";
-import { CiPower } from "react-icons/ci";
+import { RxExit } from "react-icons/rx";
 import Menu from "./Menu";
 
 const Navbar = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
           }}
         >
           <button title="Go to Dashboard">Sign out</button>
-          <CiPower />
+          <RxExit />
         </form>
       </div>
     </div>
