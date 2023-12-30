@@ -5,6 +5,7 @@ import SignUpLoader from './SigningUp'
 import Link from "next/link";
 const SignUp = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
+  
   return (
     <div className="p-10 bg-slate-100 border-none rounded-lg">
       <form className=" space-y-4" action={addUser}>
@@ -12,6 +13,7 @@ const SignUp = () => {
           <label>Name:</label>
           <input
             type="text"
+            pattern="^[A-Za-z].*"
             name="username"
             required
             className="border ml-1 border-black outline-none p-1"
@@ -22,6 +24,7 @@ const SignUp = () => {
           <input
             type="email"
             name="useremail"
+            pattern="^[A-Za-z].*"
             required
             className="border ml-1 border-black outline-none p-1"
           />

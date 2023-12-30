@@ -30,7 +30,7 @@ export default function Home() {
         <div className="space-y-4">
           <div className="justify-around">
             <h2 className={`font-semibold text-center mb-1 text-blue-500 ${kanit.className}`}>
-              Shows-I-Watched
+              ReelRealm
             </h2>
             <p className={golos.className}>
               Displays a list of movies that a user can update or delete. He can

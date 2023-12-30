@@ -6,7 +6,7 @@ export default function Logo() {
       <div className="h-9 w-9">
         <BiCameraMovie className="w-9 h-9"/>
       </div>
-      <p className={`${lato.className} text-xl`}>Shows-I-Watched</p>
+      <p className={`${lato.className} text-xl`}>ReelRealm</p>
     </div>
   );
 }

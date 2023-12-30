@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    template:'%s | Shows-I-Watch',
-    default:'Shows I watch'
+    template:'%s | ReelRealm',
+    default:'ReelRealm'
   },
   description: 'A list of movies I watched',
 }
