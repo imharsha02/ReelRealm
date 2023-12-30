@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { addUser } from "@/app/lib/actions";
-import SigningUp from './SigningUp'
+import SignUpLoader from './SigningUp'
 import Link from "next/link";
 const SignUp = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -53,7 +53,7 @@ const SignUp = () => {
           </Link>
         </div>
       </form>
-      {buttonClicked? <SigningUp/>:""}
+      {buttonClicked? <SignUpLoader/>:""}
     </div>
   );
 };
