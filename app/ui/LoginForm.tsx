@@ -2,7 +2,12 @@
 import { useFormState, useFormStatus } from "react-dom";
 import { authenticate } from "@/app/lib/actions";
 
-const LoginForm = () => {
+type LoginFormProps = {
+  loginButtonClicked: boolean;
+  setLoginButtonClicked: (clicked: boolean) => void;
+};
+
+const LoginForm:React.FC<LoginFormProps> = ({ loginButtonClicked, setLoginButtonClicked }) => {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
   return (
     <div className="flex flex-col my-10">
@@ -27,7 +32,10 @@ const LoginForm = () => {
             className="p-1 focus:outline-none border-none rounded-md"
           />
         </div>
-        <LoginButton />
+        <LoginButton
+          loginButtonClicked={loginButtonClicked}
+          setLoginButtonClicked={setLoginButtonClicked}
+        />
         <div
           className="flex h-8 items-end space-x-1"
           aria-live="polite"
@@ -36,6 +44,7 @@ const LoginForm = () => {
           {errorMessage && (
             <>
               <p className="text-sm text-red-500">{errorMessage}</p>
+              {setLoginButtonClicked(false)}
             </>
           )}
         </div>
@@ -44,12 +53,16 @@ const LoginForm = () => {
   );
 };
 
-function LoginButton() {
+const LoginButton:React.FC<LoginFormProps> = ({ loginButtonClicked, setLoginButtonClicked }) => {
   const { pending } = useFormStatus();
+
   return (
     <div>
       <button
         type="submit"
+        onClick={() => {
+          setLoginButtonClicked(true);
+        }}
         className="bg-blue-500 text-white w-full px-5 py-2 rounded-md hover:bg-blue-400 transition"
         aria-disabled={pending}
       >

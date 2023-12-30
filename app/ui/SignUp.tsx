@@ -1,6 +1,10 @@
+"use client";
+import { useState } from "react";
 import { addUser } from "@/app/lib/actions";
+import SigningUp from './SigningUp'
 import Link from "next/link";
 const SignUp = () => {
+  const [buttonClicked, setButtonClicked] = useState(false);
   return (
     <div className="p-10 bg-slate-100 border-none rounded-lg">
       <form className=" space-y-4" action={addUser}>
@@ -34,12 +38,13 @@ const SignUp = () => {
         <div className="flex flex-col space-y-3 items-center">
           <button
             type="submit"
+            onClick={() => {setButtonClicked(true)}}
             className="font-bold w-full px-5 py-2 border-none rounded-lg bg-blue-500 text-white hover:bg-blue-400 transition"
           >
             Sign up
           </button>
 
-          <p>AND</p>
+          <p>OR</p>
           <Link
             href="/login"
             className="font-bold text-center w-full px-4 py-2 border-none rounded-lg bg-blue-500 text-white hover:bg-blue-400 transition"
@@ -48,6 +53,7 @@ const SignUp = () => {
           </Link>
         </div>
       </form>
+      {buttonClicked? <SigningUp/>:""}
     </div>
   );
 };

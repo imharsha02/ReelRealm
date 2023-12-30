@@ -2,14 +2,12 @@
 import Logo from "@/app/ui/logo";
 import Link from "next/link";
 import { useState } from "react";
-import { GoPlus } from "react-icons/go";
-import { IoHomeOutline } from "react-icons/io5";
-import SignoutLink from "./SignoutLink";
+import { RxExit } from "react-icons/rx";
 
 const Menu = () => {
   const [iconClicked, setIconClicked] = useState(false);
   return (
-    <div className="flex items-center justify-between lg:hidden bg-slate-300 rounded-md p-2">
+    <div className="flex items-center justify-between overflow-auto lg:hidden bg-slate-300 rounded-md p-2">
       <Logo />
 
       {/* Button 👇 */}
@@ -33,7 +31,10 @@ const Menu = () => {
           <div className="flex items-center">
             <Link href="/movies/add">Add movie</Link>
           </div>
-          <SignoutLink />
+          <div className="flex items-center space-x-2">
+            Sign out
+            <RxExit />
+          </div>
         </div>
       </div>
     </div>

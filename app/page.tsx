@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Logo from "./ui/logo";
 import SignUp from "./ui/SignUp";
+import { golos } from "./ui/fonts";
+import { kanit } from "./ui/fonts";
 
 export default function Home() {
   return (
@@ -26,11 +28,16 @@ export default function Home() {
 
         {/* Intro */}
         <div className="space-y-4">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab nihil
-            ipsa, dicta iure nemo ipsum omnis doloribus corrupti fuga officiis
-            ut, aliquam eaque saepe atque nostrum dolores libero, quidem sunt.
-          </p>
+          <div className="justify-around">
+            <h2 className={`font-semibold text-center mb-1 text-blue-500 ${kanit.className}`}>
+              Shows-I-Watched
+            </h2>
+            <p className={golos.className}>
+              Displays a list of movies that a user can update or delete. He can
+              even add new movies to the list using the Add a movie button
+            </p>
+            <p className={`text-center my-1 ${golos.className}`}>Sign up or login to continue</p>
+          </div>
           <SignUp />
         </div>
       </div>
