@@ -77,16 +77,6 @@ const EditForm = ({
               defaultValue={movieDetails.release_date}
             />
           </div>
-          <div>
-            <label htmlFor="Image_source" className="mr-2">
-              Image
-            </label>
-            <input
-              type="file"
-              name="movie_thumbnail"
-              className="rounded px-2 p-1 focus:outline-none"
-            />
-          </div>
           <div className="flex justify-center">
             <div className="mt-6 flex justify-end gap-4">
               <Link
