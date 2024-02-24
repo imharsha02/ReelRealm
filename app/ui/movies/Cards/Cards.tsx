@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { kanit } from "../../fonts";
 import { Card, CardContent, CardDescription } from "@/components/ui/card";
-import { TypographyH4 } from "@/components/ui/TypographyH4";
+import { TypographyLead } from "@/components/ui/TypographyLead";
 
 export default async function MovieCard({
   name,
@@ -14,9 +14,9 @@ export default async function MovieCard({
   return (
     <Card>
       <CardContent className="pt-6">
-        <CardDescription>
+        <CardDescription className="space-y-2">
           <Image src={Image_source} alt="" height={200} width={200} />
-          <TypographyH4>{name}</TypographyH4>
+          <TypographyLead>{name}</TypographyLead>
         </CardDescription>
       </CardContent>
     </Card>
