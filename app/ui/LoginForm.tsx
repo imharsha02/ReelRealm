@@ -1,75 +1,110 @@
 "use client";
 import { useFormState, useFormStatus } from "react-dom";
 import { authenticate } from "@/app/lib/actions";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { TypographyP } from "@/components/ui/TypographyP";
+import { TypographyH2 } from "@/components/ui/TypographyH2";
 
 type LoginFormProps = {
   loginButtonClicked: boolean;
   setLoginButtonClicked: (clicked: boolean) => void;
 };
 
-const LoginForm:React.FC<LoginFormProps> = ({ loginButtonClicked, setLoginButtonClicked }) => {
+const formSchema = z.object({
+  email: z.string(),
+  password: z.string(),
+});
+
+const LoginForm: React.FC<LoginFormProps> = ({
+  loginButtonClicked,
+  setLoginButtonClicked,
+}) => {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
   return (
-    <div className="flex flex-col my-10">
-      <form
-        action={dispatch}
-        className="bg-slate-200 max-w-max p-3 mx-auto my-3 rounded space-y-3"
-      >
-        <p className="text-2xl font-bold text-center">Login</p>
-        <div className="flex gap-2 items-center">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            className="p-1 focus:outline-none border-none rounded-md"
-          />
-        </div>
-        <div className="flex gap-2 items-center">
-          <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            className="p-1 focus:outline-none border-none rounded-md"
-          />
-        </div>
-        <LoginButton
-          loginButtonClicked={loginButtonClicked}
-          setLoginButtonClicked={setLoginButtonClicked}
-        />
-        <div
-          className="flex h-8 items-end space-x-1"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {errorMessage && (
-            <>
-              <p className="text-sm text-red-500">{errorMessage}</p>
-              {setLoginButtonClicked(false)}
-            </>
-          )}
-        </div>
-      </form>
-    </div>
+    <Card className="w-fit mx-auto my-5">
+      <CardContent className="pt-6">
+        <TypographyH2>Login</TypographyH2>
+        <Form {...form}>
+          <form action={dispatch} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="flex items-center gap-2">
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input type="email" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem className="flex items-center gap-2">
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input type="password" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <LoginButton
+              loginButtonClicked={loginButtonClicked}
+              setLoginButtonClicked={setLoginButtonClicked}
+            />
+
+            {errorMessage && (
+              <>
+                <TypographyP className="text-red-500">
+                  {errorMessage}
+                </TypographyP>
+                {setLoginButtonClicked(false)}
+              </>
+            )}
+          </form>
+        </Form>
+      </CardContent>
+    </Card>
   );
 };
 
-const LoginButton:React.FC<LoginFormProps> = ({ loginButtonClicked, setLoginButtonClicked }) => {
+const LoginButton: React.FC<LoginFormProps> = ({
+  loginButtonClicked,
+  setLoginButtonClicked,
+}) => {
   const { pending } = useFormStatus();
 
   return (
-    <div>
-      <button
-        type="submit"
-        onClick={() => {
-          setLoginButtonClicked(true);
-        }}
-        className="bg-blue-500 text-white w-full px-5 py-2 rounded-md hover:bg-blue-400 transition"
-        aria-disabled={pending}
-      >
-        Sign in
-      </button>
-    </div>
+    <Button
+      onClick={() => {
+        setLoginButtonClicked(true);
+      }}
+    >
+      Sign in
+    </Button>
   );
-}
+};
 
 export default LoginForm;

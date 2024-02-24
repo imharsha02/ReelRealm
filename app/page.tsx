@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Logo from "./ui/logo";
 import SignUp from "./ui/SignUp";
-import { golos } from "./ui/fonts";
-import { kanit } from "./ui/fonts";
+import { TypographyH2 } from "@/components/ui/TypographyH2";
+import { TypographyP } from "@/components/ui/TypographyP";
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       </div>
 
       {/* Content section👇 */}
-      <div className=" p-3 w-3/5 flex mx-2 items-center justify-between gap-x-20 rounded-2xl">
+      <div className=" p-3 w-4/5 flex mx-2 items-center justify-between gap-x-20 rounded-2xl">
         {/* Hero image 👇 */}
         <div>
           <Image
@@ -29,14 +29,14 @@ export default function Home() {
         {/* Intro */}
         <div className="space-y-4">
           <div className="justify-around">
-            <h2 className={`font-semibold text-center mb-1 text-blue-500 ${kanit.className}`}>
+            <TypographyH2>
               ReelRealm
-            </h2>
-            <p className={golos.className}>
+            </TypographyH2>
+            <TypographyP>
               Displays a list of movies that a user can update or delete. He can
               even add new movies to the list using the Add a movie button
-            </p>
-            <p className={`text-center my-1 ${golos.className}`}>Sign up or login to continue</p>
+            </TypographyP>
+            <TypographyP>Sign up or login to continue</TypographyP>
           </div>
           <SignUp />
         </div>

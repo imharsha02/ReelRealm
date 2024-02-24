@@ -19,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='w-screen'>
+    <html lang="en">
       <body className={inter.className}>
-        <div className='w-screen mx-auto md:w-auto'>
+        <div>
           {children}
         </div>
       </body>

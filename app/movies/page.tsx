@@ -1,4 +1,4 @@
-import Card from "../ui/movies/Cards/Cards";
+import MovieCard from "../ui/movies/Cards/Cards";
 import { fetchMovies } from "@/app/lib/utils";
 import Link from "next/link";
 import UpdateMovieButton from "../ui/movies/UpdateMovieButton/UpdateMovieButton";
@@ -23,7 +23,7 @@ const Moviespage = async () => {
               href={`/movies/${movie.movie_id}`}
               title={`Movie No. ${movie.movie_id}`}
             >
-              <Card
+              <MovieCard
                 name={movie.name}
                 Image_source={Image_source?.Image_source}
               />
