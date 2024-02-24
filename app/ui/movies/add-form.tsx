@@ -1,77 +1,109 @@
+"use client";
 import { fetchMovies } from "@/app/lib/utils";
 import { addMovie } from "@/app/lib/actions";
-const Form = async () => {
-  const movies = await fetchMovies();
-  const numberOfMovies = movies.length;
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from "@/components/ui/form";
+import { Card, CardContent } from "@/components/ui/card";
+const formSchema = z.object({
+  movie_id: z.number(),
+  movie_name: z.string(),
+  lead_role_by: z.string(),
+  release_date: z.string(),
+  movie_thumbnail: z.string(),
+});
+const AddMovieForm = () => {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      movie_id: 25,
+      movie_name: "",
+      lead_role_by: "",
+      release_date: "",
+      movie_thumbnail: "",
+    },
+  });
   return (
-    <div className="lg:max-w-screen mx-[9px] lg:mx-auto">
-      <form
-        action={addMovie}
-        className="bg-slate-200 overflow-hidden p-5 space-y-3 rounded-lg lg:mx-auto lg:w-max"
-      >
-        <div>
-          <label htmlFor="movie_id" className="mr-2">
-            Movie No.
-          </label>
-          <input
-            name="movie_id"
-            type="number"
-            disabled
-            value={numberOfMovies + 1}
-            className="rounded p-1 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label htmlFor="movie_name" className="mr-2">
-            Name
-          </label>
-          <input
-            type="text"
-            name="movie_name"
-            className="rounded p-1 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label htmlFor="lead_role_by" className="mr-2">
-            Actors
-          </label>
-          <input
-            type="text"
-            name="lead_role_by"
-            className="rounded p-1 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label htmlFor="lead_role_by" className="mr-2">
-            Release date
-          </label>
-          <input
-            type="text"
-            name="release_date"
-            className="rounded p-1 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label htmlFor="Image_source" className="mr-2">
-            Image
-          </label>
-          <input
-            type="file"
-            name="movie_thumbnail"
-            className="rounded px-2 p-1 focus:outline-none"
-          />
-        </div>
-        <div className="flex justify-center">
-          <button
-            type="submit"
-            className="bg-blue-500 text-white font-bold px-5 py-2 rounded-md hover:bg-blue-400 transition"
-          >
-            Add
-          </button>
-        </div>
-      </form>
-    </div>
+    <Card className="w-max mx-auto">
+      <CardContent>
+        <Form {...form}>
+          <form action={addMovie}>
+            <FormField
+              control={form.control}
+              name="movie_id"
+              render={({ field }) => (
+                <FormItem className="flex items-center gap-2">
+                  <FormLabel>Movie No.</FormLabel>
+                  <FormControl>
+                    <Input type="number" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="movie_name"
+              render={({ field }) => (
+                <FormItem className="flex items-center gap-2">
+                  <FormLabel>Movie Name:</FormLabel>
+                  <FormControl>
+                    <Input type="string" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="lead_role_by"
+              render={({ field }) => (
+                <FormItem className="flex items-center gap-2">
+                  <FormLabel>Lead role by:</FormLabel>
+                  <FormControl>
+                    <Input type="string" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="release_date"
+              render={({ field }) => (
+                <FormItem className="flex items-center gap-2">
+                  <FormLabel>Release date:</FormLabel>
+                  <FormControl>
+                    <Input type="string" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              name="movie_thumbnail"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel htmlFor="Image_source" className="mr-2">
+                    Image
+                  </FormLabel>
+                  <FormControl>
+                    <Input type="file" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="mt-2 w-full">Add</Button>
+          </form>
+        </Form>
+      </CardContent>
+    </Card>
   );
 };
 
-export default Form;
+export default AddMovieForm;

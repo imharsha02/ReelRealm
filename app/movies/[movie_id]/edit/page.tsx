@@ -1,5 +1,6 @@
 import { fetchDetails } from "@/app/lib/utils";
 import EditForm from "@/app/ui/movies/EditForm";
+import { TypographyH2 } from "@/components/ui/TypographyH2";
 
 const EditPage = async ({ params }: { params: { movie_id: number } }) => {
   const id = params.movie_id;
@@ -8,12 +9,12 @@ const EditPage = async ({ params }: { params: { movie_id: number } }) => {
     ? individualMovie[0]
     : individualMovie;
   return (
-    <>
-      <h1 className="text-3xl my-4 xl:my-10 text-center font-bold">
+    <div className="my-3">
+      <TypographyH2 className="text-center">
         Update {individualMovie.movie_name}
-      </h1>
+      </TypographyH2>
       <EditForm movieDetails={movieToEdit} />
-    </>
+    </div>
   );
 };
 
