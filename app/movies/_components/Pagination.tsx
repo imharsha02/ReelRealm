@@ -4,6 +4,8 @@ import { Movies } from "@/app/lib/definations";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ButtonIconRight } from "@/components/ui/ButtonIconRight";
+import { ButtonIconLeft } from "@/components/ui/ButtonIconLeft";
 
 const Pagination = ({
   movieId,
@@ -19,24 +21,14 @@ const Pagination = ({
   return (
     <div className="flex w-full justify-between mt-3">
       {hasPrevMovie && (
-        <Button asChild>
-
-        <Link
-          href={`/movies/${movieId - 1}`}
-        >
-          <FaCaretLeft  className=" h-9  w-9"/>
+        <Link href={`/movies/${movieId - 1}`}>
+          <ButtonIconLeft />
         </Link>
-        </Button>
       )}
       {hasNextMovie && (
-        <Button asChild>
-
-        <Link
-          href={`/movies/${movieId + 1}`}
-        >
-          <FaCaretRight  className=" h-9  w-9"/>
+        <Link href={`/movies/${movieId + 1}`}>
+          <ButtonIconRight />
         </Link>
-        </Button>
       )}
     </div>
   );
